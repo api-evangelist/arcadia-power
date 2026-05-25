@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/arcadia-power/main/json-schema/arcadia-statement-schema.json",
+  "title": "Arcadia Statement",
+  "description": "A utility statement (bill) returned by the Arcadia Plug API. Statements are versioned; this schema describes the canonical fields exposed at /plug/statements.",
+  "type": "object",
+  "required": ["id", "accountId", "statementDate"],
+  "properties": {
+    "id": { "type": "string", "description": "Arcadia-issued statement identifier." },
+    "accountId": { "type": "string" },
+    "accountNumber": { "type": "string" },
+    "invoiceNumber": { "type": "string" },
+    "statementDate": { "type": "string", "format": "date" },
+    "periodStartDate": { "type": "string", "format": "date" },
+    "periodEndDate": { "type": "string", "format": "date" },
+    "dueDate": { "type": "string", "format": "date" },
+    "amountDue": { "type": "number" },
+    "outstandingBalance": { "type": "number" },
+    "totalCharges": { "type": "number" },
+    "currency": { "type": "string", "default": "USD" },
+    "provider": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" }
+      }
+    },
+    "meters": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "meterNumber": { "type": "string" },
+          "commodity": { "type": "string", "enum": ["ELECTRIC", "NATURAL_GAS", "WATER", "OTHER"] },
+          "totalUsage": { "type": "number" },
+          "usageUnit": { "type": "string" }
+        }
+      }
+    },
+    "site": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "address": { "type": "string" }
+      }
+    },
+    "lineItems": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "description": { "type": "string" },
+          "amount": { "type": "number" },
+          "category": { "type": "string", "enum": ["SUPPLY", "DELIVERY", "TAX", "FEE", "CREDIT", "OTHER"] }
+        }
+      }
+    },
+    "version": { "type": "integer" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "lastModifiedAt": { "type": "string", "format": "date-time" }
+  }
+}

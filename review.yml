@@ -1,0 +1,60 @@
+aid: arcadia-power
+name: Arcadia
+url: https://www.arcadia.com
+reviewer: API Evangelist
+date: '2026-05-25'
+tier: 1
+verdict: |
+  Tier-1 API platform. Arcadia operates Arc — a serious, well-documented utility data
+  API spanning bills, statements, meters, intervals (15-minute), tariffs, providers,
+  and webhooks. The Plug API has a clean REST surface, OAuth 2.0 client-credentials
+  auth, header-pinned versioning (Arcadia-Version), a llms.txt AI-agent index, a
+  full sandbox mode, and a hosted Connect onboarding UI that lifts utility-credential
+  handling off the integrator. Post-ENGIE-Impact acquisition (April 2026) Arcadia is
+  now the dominant horizontal energy-intelligence platform.
+scores:
+  documentation: 4.5
+  developerExperience: 4.4
+  apiDesign: 4.3
+  versioning: 4.5
+  authentication: 4.5
+  observability: 4.0
+  ecosystemBreadth: 4.5
+  commercialClarity: 3.5
+  overall: 4.4
+strengths:
+- Coherent Arc product story (Plug + Connect + Signal) with one OAuth, one header version, one data model
+- Hosted Arcadia Connect handles utility logins, MFA, and OTP without partner credential storage
+- Date-pinned Arcadia-Version header for explicit, non-breaking version migration
+- llms.txt index for AI-agent integration — uncommon and valuable
+- Full sandbox mode with statement-generation endpoint for end-to-end testing
+- 15-minute interval data with raw + normalized variants is exactly what solar/storage/EV builders need
+- Webhook event surface lets production integrators avoid polling
+- Enterprise depth: ~25% of Fortune 500, ~$100B in utility spend under management, 580M MWh/year
+- ENGIE Impact acquisition brings UBM, procurement advisory, and sustainability reporting into one platform
+gaps:
+- No public OpenAPI specification file (only llms.txt and HTML reference)
+- No published price list — entirely Contact Sales
+- Public rate-limit numbers are not documented; limits are per-tier
+- Multiple version surfaces (Plug current, Utility Cloud legacy, v2022-10-13, v2022-12-21-Signal) create discovery friction
+- arcadiapower GitHub org is mostly internal Ruby/infrastructure repos — no official, supported SDK is published
+- No public status page surfaced from the homepage navigation
+recommendations:
+- Publish an OpenAPI 3.1 file (or per-product files) as a first-class artifact, not just llms.txt
+- Publish baseline rate limits per tier so integrators can plan capacity
+- Ship an officially supported TypeScript and Python SDK on the arcadiapower org
+- Add a public status page link to the docs header
+- Consolidate version surfaces under one canonical navigation
+notes: |
+  Compared against tier-1 references in the api-evangelist catalog (e.g., Anthropic),
+  Arcadia is in the same league for product cohesion and contract clarity, but trails
+  on machine-readable artifacts (OpenAPI), published rate limits, and SDK availability.
+sources:
+- https://www.arcadia.com
+- https://www.arcadia.com/arc
+- https://docs.arcadia.com
+- https://docs.arcadia.com/reference/introduction
+- https://docs.arcadia.com/docs/api-quick-start-guide
+- https://docs.arcadia.com/llms.txt
+- https://www.arcadia.com/press/arcadia-acquires-engie-impact
+- https://github.com/arcadiapower

@@ -1,0 +1,101 @@
+aid: arcadia-power
+name: Arcadia (Arc Platform) Plans & Pricing
+url: https://www.arcadia.com/arc
+description: |
+  Arcadia's Arc data platform (Plug, Connect, Signal) is sold under enterprise contracts;
+  public list pricing is not published. Pricing follows a Contact-Sales model with custom
+  per-account, per-meter, and per-interval-meter volume tiers, plus separate fees for
+  Signal tariff calculations and Connect onboarding sessions. Sandbox access is included.
+plans:
+- id: sandbox
+  name: Sandbox / Trial
+  description: |
+    Developer sandbox access for evaluating the Plug API end-to-end against simulated
+    credentials, statements, meters, and intervals. No real utility data; no SLA.
+  type: Free
+  entries:
+  - geo: Global
+    unit: 1
+    label: Developer access
+    price: 0
+    metric: account
+    timeFrame: month
+    description: Free developer/sandbox access.
+  elements:
+  - Full Plug API surface against sandbox data
+  - Sandbox credential creation
+  - Statement generation endpoint for testing
+  - Webhook event simulation
+- id: starter
+  name: Starter (Contact Sales)
+  description: |
+    Production access tier for small integrations and pilots. Typically scoped to a
+    low five-figure annual commitment with metered usage per account and per meter.
+  type: Custom
+  entries:
+  - geo: Global
+    unit: 1
+    label: Annual commitment
+    price: Contact
+    metric: contract
+    timeFrame: year
+    description: Custom-quoted production tier.
+  elements:
+  - Production Plug API access
+  - Statements + 15-minute interval data
+  - Arcadia Connect hosted onboarding
+  - Webhook delivery
+  - Email support
+- id: growth
+  name: Growth (Contact Sales)
+  description: |
+    Mid-market production tier with higher monthly account, statement, and interval-meter
+    allowances; includes Signal tariff calculations and priority support.
+  type: Custom
+  entries:
+  - geo: Global
+    unit: 1
+    label: Annual commitment
+    price: Contact
+    metric: contract
+    timeFrame: year
+    description: Custom-quoted production tier.
+  elements:
+  - Higher monthly account and meter allowances
+  - Signal tariff calculations
+  - Priority support and named CSM
+  - Higher webhook concurrency
+- id: enterprise
+  name: Enterprise (Contact Sales)
+  description: |
+    Full enterprise tier covering Arc (Plug + Connect + Signal) plus, post-acquisition,
+    ENGIE-Impact-derived Utility Bill Management, Energy Procurement Advisory, and
+    Sustainability Reporting solutions. SLAs, dedicated account management, custom
+    data residency, and bulk export pipelines.
+  type: Custom
+  entries:
+  - geo: Global
+    unit: 1
+    label: Annual commitment
+    price: Contact
+    metric: contract
+    timeFrame: year
+    description: Custom-quoted enterprise platform deal.
+  elements:
+  - Unlimited Plug API access at negotiated volumes
+  - Signal tariff calculations and rate library access
+  - Utility Bill Management (ENGIE Impact heritage)
+  - Energy Procurement Advisory
+  - Sustainability Reporting and carbon accounting
+  - Custom SLAs, security review, and data residency
+  - Dedicated CSM and solution engineering
+common:
+- type: Pricing
+  url: https://www.arcadia.com/arc
+- type: ContactSales
+  url: https://www.arcadia.com/contact
+sources:
+- https://www.arcadia.com/arc
+- https://docs.arcadia.com/docs/api-quick-start-guide
+- https://www.arcadia.com/press/arcadia-acquires-engie-impact
+updated: '2026-05-25'

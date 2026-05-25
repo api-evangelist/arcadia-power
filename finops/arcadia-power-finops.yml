@@ -1,0 +1,51 @@
+aid: arcadia-power
+name: Arcadia FinOps Surface
+url: https://www.arcadia.com/arc
+description: |
+  Arcadia FinOps view mapped to the FinOps Framework / FOCUS data spec. Arcadia is
+  contract-priced; usage telemetry is exposed to customers through the Dashboard and
+  via API events (statement-pulled, meter-activated, interval-delivered, credential-created).
+billingModel: contract
+currency: USD
+focus:
+- column: BillingAccountId
+  description: Arcadia organization identifier.
+- column: ChargeCategory
+  description: Subscription | Usage | Professional Services | Advisory
+- column: ChargeDescription
+  description: Plug statements pulled, meter activations, interval-meter months, Signal calculations, Connect sessions, UBM seats, Procurement Advisory hours, Sustainability Reporting modules.
+- column: ServiceCategory
+  description: Energy Intelligence Platform
+- column: ServiceName
+  description: Arc Plug | Arc Connect | Arc Signal | Utility Bill Management | Energy Procurement Advisory | Sustainability Reporting
+- column: PricingUnit
+  description: per account, per statement, per interval-meter-month, per Signal calculation, per Connect session, per seat, per advisory engagement.
+- column: PricingQuantity
+  description: Volume consumed during the billing period.
+- column: BilledCost
+  description: Contracted commitment amortization plus overage.
+- column: EffectiveCost
+  description: Net of any credits and discounts negotiated in contract.
+allocation:
+- dimension: Organization
+- dimension: Site
+- dimension: Credential
+- dimension: Meter
+- dimension: Provider
+- dimension: Commodity (Electric / Natural Gas / Water)
+reportingSurfaces:
+- name: Arcadia Dashboard
+  url: https://dashboard.arcadia.com
+- name: Arc API events (organizations/{id}/events, accounts/{id}/events, meters/{id}/events, credentials/{id}/events)
+  url: https://docs.arcadia.com/reference/introduction
+- name: Webhooks (statement.created, statement.updated, meter.activated, interval.delivered)
+  url: https://docs.arcadia.com/reference/list-webhooks
+notes: |
+  No public price list — customers receive contracted invoices. For internal FinOps
+  programs, normalize against PricingQuantity (statements, intervals, sessions) and
+  surface a $/statement and $/interval-meter rate against the contract.
+sources:
+- https://www.arcadia.com/arc
+- https://docs.arcadia.com/reference/introduction
+- https://www.arcadia.com/press/arcadia-acquires-engie-impact
+updated: '2026-05-25'

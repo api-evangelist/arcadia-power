@@ -1,0 +1,24 @@
+name: arcadia-signal-tariffs
+description: Tariff and energy-rate lookup and calculation operations for Arcadia Signal.
+provider: arcadia-power
+api: arcadia-signal-api
+baseURL: https://api.arcadia.com
+authentication:
+  type: oauth2
+  flow: client_credentials
+  tokenURL: https://api.arcadia.com/oauth2/token
+headers:
+  Arcadia-Version: '2024-02-21'
+operations:
+- id: listTariffs
+  method: GET
+  path: /signal/tariffs
+  summary: List tariffs (Signal)
+- id: calculateRate
+  method: POST
+  path: /signal/calculations
+  summary: Run a tariff-based rate calculation
+notes: |
+  Signal endpoint paths are illustrative; the Signal API surface is documented under the
+  v2022-12-21-Signal version of Arcadia docs. Bind operations precisely against your account's
+  Signal entitlement when generating clients.

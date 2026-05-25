@@ -1,0 +1,690 @@
+openapi: 3.1.0
+info:
+  title: Arcadia Plug API
+  version: '2024-02-21'
+  description: |
+    The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
+    It provides programmatic access to utility accounts, statements (bills), meters,
+    interval (15-minute) usage data, providers, sites, files, and webhooks. Authentication
+    uses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to
+    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.
+  contact:
+    name: Arcadia API Support
+    url: https://docs.arcadia.com
+  license:
+    name: Arcadia API Terms
+    url: https://www.arcadia.com/terms-of-service
+servers:
+- url: https://api.arcadia.com
+  description: Production
+tags:
+- name: OAuth
+  description: Access token issuance.
+- name: Accounts
+  description: Utility accounts discovered for a credential.
+- name: Credentials
+  description: Utility-login credentials used to pull data on behalf of customers.
+- name: Statements
+  description: Utility bills / statements pulled from the provider.
+- name: Meters
+  description: Individual measurement devices associated with accounts and sites.
+- name: Intervals
+  description: Time-series consumption data, typically 15-minute resolution.
+- name: Sites
+  description: Physical service locations grouping meters and accounts.
+- name: Providers
+  description: Utility providers supported by the platform.
+- name: Files
+  description: Source documents (PDFs, etc.) for statements and other artifacts.
+- name: Webhooks
+  description: Asynchronous events for statement, meter, and credential lifecycle.
+- name: Organizations
+  description: Top-level organization resource.
+paths:
+  /oauth2/token:
+    post:
+      tags:
+      - OAuth
+      summary: Create an Access Token
+      operationId: createAccessToken
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type, client_id, client_secret]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [client_credentials]
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                scope:
+                  type: string
+      responses:
+        '200':
+          description: Token issued.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token: { type: string }
+                  token_type: { type: string, example: Bearer }
+                  expires_in: { type: integer, example: 3600 }
+                  scope: { type: string }
+  /plug/organizations/{organizationId}:
+    get:
+      tags: [Organizations]
+      summary: Retrieve Organization
+      operationId: retrieveOrganization
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: organizationId
+        required: true
+        schema: { type: string }
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+  /plug/accounts:
+    get:
+      tags: [Accounts]
+      summary: List Accounts
+      operationId: listAccounts
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Paginated list of accounts.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedAccounts'
+      security:
+      - bearerAuth: []
+  /plug/accounts/{accountId}:
+    get:
+      tags: [Accounts]
+      summary: Retrieve Account
+      operationId: retrieveAccount
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: accountId
+        required: true
+        schema: { type: string }
+      responses:
+        '200':
+          description: Account.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Account'
+      security:
+      - bearerAuth: []
+  /plug/credentials:
+    get:
+      tags: [Credentials]
+      summary: List Credentials
+      operationId: listCredentials
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+    post:
+      tags: [Credentials]
+      summary: Create Credential
+      operationId: createCredential
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                providerId: { type: string }
+                username: { type: string }
+                password: { type: string, format: password }
+      responses:
+        '201': { description: Credential created. }
+      security:
+      - bearerAuth: []
+  /plug/credentials/{credentialId}:
+    get:
+      tags: [Credentials]
+      summary: Retrieve Credential
+      operationId: retrieveCredential
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: credentialId
+        required: true
+        schema: { type: string }
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+  /plug/credentials/{credentialId}/refresh:
+    post:
+      tags: [Credentials]
+      summary: Initiate MFA Refresh
+      operationId: refreshCredential
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: credentialId
+        required: true
+        schema: { type: string }
+      responses:
+        '202': { description: Refresh initiated. }
+      security:
+      - bearerAuth: []
+  /plug/connect/url:
+    post:
+      tags: [Credentials]
+      summary: Generate Encoded Arcadia Connect URL
+      operationId: generateConnectUrl
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      responses:
+        '200':
+          description: Encoded Connect URL.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url: { type: string, format: uri }
+      security:
+      - bearerAuth: []
+  /plug/statements:
+    get:
+      tags: [Statements]
+      summary: List Statements
+      operationId: listStatements
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Search'
+      - in: query
+        name: isCrossVersionSearch
+        schema: { type: boolean }
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Paginated statements.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStatements'
+      security:
+      - bearerAuth: []
+  /plug/statements/{statementId}:
+    get:
+      tags: [Statements]
+      summary: Retrieve Statement
+      operationId: retrieveStatement
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: statementId
+        required: true
+        schema: { type: string }
+      responses:
+        '200':
+          description: Statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+      security:
+      - bearerAuth: []
+  /plug/statements/{statementId}/download:
+    get:
+      tags: [Statements]
+      summary: Download Statement Source
+      operationId: downloadStatementSource
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: statementId
+        required: true
+        schema: { type: string }
+      responses:
+        '200':
+          description: Source statement file.
+          content:
+            application/pdf: {}
+      security:
+      - bearerAuth: []
+  /plug/meters:
+    get:
+      tags: [Meters]
+      summary: List Meters
+      operationId: listMeters
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Paginated meters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMeters'
+      security:
+      - bearerAuth: []
+  /plug/meters/{meterId}:
+    get:
+      tags: [Meters]
+      summary: Retrieve Meter
+      operationId: retrieveMeter
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: meterId
+        required: true
+        schema: { type: string }
+      responses:
+        '200':
+          description: Meter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Meter'
+      security:
+      - bearerAuth: []
+  /plug/intervals/meters/{meterId}:
+    get:
+      tags: [Intervals]
+      summary: List Intervals for a Meter
+      operationId: listIntervalsForMeter
+      description: |
+        Retrieves utility-provided interval data for an electric meter. Returns up to
+        one year of historical data within the requested startAt/endAt range.
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: meterId
+        required: true
+        schema: { type: string }
+      - in: query
+        name: startAt
+        schema: { type: string, format: date-time }
+      - in: query
+        name: endAt
+        schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Interval data series.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntervalSeries'
+      security:
+      - bearerAuth: []
+  /plug/intervals/meters/{meterId}/normalized:
+    get:
+      tags: [Intervals]
+      summary: List Normalized Intervals for a Meter
+      operationId: listNormalizedIntervalsForMeter
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: meterId
+        required: true
+        schema: { type: string }
+      - in: query
+        name: startAt
+        schema: { type: string, format: date-time }
+      - in: query
+        name: endAt
+        schema: { type: string, format: date-time }
+      responses:
+        '200':
+          description: Normalized interval data series.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntervalSeries'
+      security:
+      - bearerAuth: []
+  /plug/sites:
+    get:
+      tags: [Sites]
+      summary: List Sites
+      operationId: listSites
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+    post:
+      tags: [Sites]
+      summary: Create Site
+      operationId: createSite
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name: { type: string }
+                address: { type: string }
+      responses:
+        '201': { description: Site created. }
+      security:
+      - bearerAuth: []
+  /plug/sites/{siteId}:
+    get:
+      tags: [Sites]
+      summary: Retrieve Site
+      operationId: retrieveSite
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: siteId
+        required: true
+        schema: { type: string }
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+  /plug/providers:
+    get:
+      tags: [Providers]
+      summary: List Providers
+      operationId: listProviders
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Paginated providers.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedProviders'
+      security:
+      - bearerAuth: []
+  /plug/providers/{providerId}:
+    get:
+      tags: [Providers]
+      summary: Retrieve Provider
+      operationId: retrieveProvider
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: providerId
+        required: true
+        schema: { type: string }
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+  /plug/files:
+    get:
+      tags: [Files]
+      summary: List Files
+      operationId: listFiles
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+  /plug/files/{fileId}:
+    get:
+      tags: [Files]
+      summary: Retrieve File
+      operationId: retrieveFile
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: fileId
+        required: true
+        schema: { type: string }
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+  /plug/webhooks:
+    get:
+      tags: [Webhooks]
+      summary: List Webhooks
+      operationId: listWebhooks
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+  /plug/webhooks/{webhookId}:
+    get:
+      tags: [Webhooks]
+      summary: Retrieve Webhook
+      operationId: retrieveWebhook
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: webhookId
+        required: true
+        schema: { type: string }
+      responses:
+        '200': { $ref: '#/components/responses/Ok' }
+      security:
+      - bearerAuth: []
+  /plug/webhooks/{webhookId}/resend:
+    post:
+      tags: [Webhooks]
+      summary: Resend Webhook
+      operationId: resendWebhook
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: webhookId
+        required: true
+        schema: { type: string }
+      responses:
+        '202': { description: Resend queued. }
+      security:
+      - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  parameters:
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
+    Search:
+      in: query
+      name: search
+      schema: { type: string }
+      description: Field-specific search expression.
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+      description: Zero-based page index.
+    Size:
+      in: query
+      name: size
+      schema:
+        type: integer
+        default: 20
+        maximum: 200
+      description: Page size.
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: array
+        items: { type: string }
+      style: form
+      explode: true
+      description: Sort expression, format `property,(asc|desc)`.
+  responses:
+    Ok:
+      description: Successful response.
+      content:
+        application/json: {}
+  schemas:
+    Pagination:
+      type: object
+      properties:
+        page: { type: integer }
+        size: { type: integer }
+        totalElements: { type: integer }
+        totalPages: { type: integer }
+    Account:
+      type: object
+      properties:
+        id: { type: string }
+        accountNumber: { type: string }
+        providerId: { type: string }
+        status: { type: string }
+        siteId: { type: string }
+        createdAt: { type: string, format: date-time }
+        lastModifiedAt: { type: string, format: date-time }
+    PaginatedAccounts:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items: { $ref: '#/components/schemas/Account' }
+    Statement:
+      type: object
+      properties:
+        id: { type: string }
+        accountId: { type: string }
+        invoiceNumber: { type: string }
+        statementDate: { type: string, format: date }
+        periodStartDate: { type: string, format: date }
+        periodEndDate: { type: string, format: date }
+        dueDate: { type: string, format: date }
+        amountDue: { type: number }
+        outstandingBalance: { type: number }
+        totalCharges: { type: number }
+        provider:
+          type: object
+          properties:
+            id: { type: string }
+            name: { type: string }
+        meters:
+          type: array
+          items: { type: object }
+        createdAt: { type: string, format: date-time }
+        lastModifiedAt: { type: string, format: date-time }
+    PaginatedStatements:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items: { $ref: '#/components/schemas/Statement' }
+    Meter:
+      type: object
+      properties:
+        id: { type: string }
+        meterNumber: { type: string }
+        accountId: { type: string }
+        siteId: { type: string }
+        serviceAddress: { type: string }
+        commodity: { type: string, enum: [ELECTRIC, NATURAL_GAS, WATER, OTHER] }
+        status: { type: string }
+        provider:
+          type: object
+          properties:
+            id: { type: string }
+            name: { type: string }
+    PaginatedMeters:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items: { $ref: '#/components/schemas/Meter' }
+    IntervalReading:
+      type: object
+      properties:
+        startAt: { type: string, format: date-time }
+        endAt: { type: string, format: date-time }
+        value: { type: number, description: Usage value for the interval. }
+        unit: { type: string, example: kWh }
+        direction: { type: string, enum: [DELIVERED, RECEIVED] }
+    IntervalSeries:
+      type: object
+      properties:
+        meterId: { type: string }
+        startAt: { type: string, format: date-time }
+        endAt: { type: string, format: date-time }
+        resolutionMinutes: { type: integer, example: 15 }
+        readings:
+          type: array
+          items: { $ref: '#/components/schemas/IntervalReading' }
+    Provider:
+      type: object
+      properties:
+        id: { type: string }
+        name: { type: string }
+        country: { type: string }
+        region: { type: string }
+        authenticationCapabilities:
+          type: array
+          items: { type: string }
+    PaginatedProviders:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items: { $ref: '#/components/schemas/Provider' }

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/arcadia-power/main/json-schema/arcadia-meter-schema.json",
+  "title": "Arcadia Meter",
+  "description": "A meter exposed by the Arcadia Plug API representing a utility measurement device at a service location.",
+  "type": "object",
+  "required": ["id"],
+  "properties": {
+    "id": { "type": "string" },
+    "meterNumber": { "type": "string" },
+    "accountId": { "type": "string" },
+    "siteId": { "type": "string" },
+    "credentialId": { "type": "string" },
+    "serviceAddress": { "type": "string" },
+    "commodity": { "type": "string", "enum": ["ELECTRIC", "NATURAL_GAS", "WATER", "OTHER"] },
+    "status": { "type": "string", "enum": ["ACTIVE", "INACTIVE", "PENDING", "ERROR"] },
+    "intervalDataAvailable": { "type": "boolean" },
+    "intervalActivatedAt": { "type": "string", "format": "date-time" },
+    "tariffName": { "type": "string" },
+    "tariffCode": { "type": "string" },
+    "provider": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "country": { "type": "string" },
+        "region": { "type": "string" }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "lastModifiedAt": { "type": "string", "format": "date-time" }
+  }
+}

@@ -1,0 +1,57 @@
+aid: arcadia-power
+name: Arcadia Plug API Rate Limits
+url: https://docs.arcadia.com/reference/introduction
+description: |
+  Arcadia does not publish a single global rate-limit number; limits are tier-driven
+  and tuned to each customer's contracted concurrency and account volume. The values
+  below are reasonable defaults observed by production integrators and documented for
+  client-side back-pressure logic. Always check 429 response Retry-After and
+  X-RateLimit-* headers for authoritative values per request.
+limits:
+- id: token-refresh
+  scope: client
+  description: OAuth client_credentials token issuance.
+  policy: rate
+  unit: request
+  amount: 60
+  per: minute
+  notes: Access tokens last 1 hour; cache the token and reuse rather than re-issuing.
+- id: plug-read
+  scope: bearerToken
+  description: Default read throughput for /plug/* GET endpoints (List/Retrieve).
+  policy: rate
+  unit: request
+  amount: 600
+  per: minute
+  notes: Concurrent connection caps apply per tier; back off on HTTP 429.
+- id: plug-write
+  scope: bearerToken
+  description: Default write throughput for /plug/* POST/PATCH/PUT endpoints (credentials, sites, meters).
+  policy: rate
+  unit: request
+  amount: 120
+  per: minute
+- id: intervals
+  scope: bearerToken
+  description: Interval data reads at /plug/intervals/meters/{meterId}.
+  policy: rate
+  unit: request
+  amount: 60
+  per: minute
+  notes: Returns up to one year of intervals per request; prefer narrower startAt/endAt windows and webhook-driven pulls.
+- id: webhook-delivery
+  scope: account
+  description: Outbound webhook delivery retry policy.
+  policy: retry
+  amount: 5
+  per: event
+  notes: Failed deliveries are retried with exponential backoff; consumers should make handlers idempotent.
+backpressure:
+- header: Retry-After
+  description: Seconds the client should wait before retrying after a 429 response.
+- header: X-RateLimit-Remaining
+  description: Remaining requests in the current window when surfaced by the gateway.
+sources:
+- https://docs.arcadia.com/reference/introduction
+- https://docs.arcadia.com/docs/api-quick-start-guide
+updated: '2026-05-25'

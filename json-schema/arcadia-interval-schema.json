@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/arcadia-power/main/json-schema/arcadia-interval-schema.json",
+  "title": "Arcadia Interval Series",
+  "description": "Time-series consumption data for an Arcadia meter. Typically 15-minute resolution, returned up to one year per request.",
+  "type": "object",
+  "required": ["meterId", "readings"],
+  "properties": {
+    "meterId": { "type": "string" },
+    "startAt": { "type": "string", "format": "date-time" },
+    "endAt": { "type": "string", "format": "date-time" },
+    "resolutionMinutes": { "type": "integer", "default": 15 },
+    "unit": { "type": "string", "example": "kWh" },
+    "normalized": { "type": "boolean" },
+    "readings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["startAt", "endAt", "value"],
+        "properties": {
+          "startAt": { "type": "string", "format": "date-time" },
+          "endAt": { "type": "string", "format": "date-time" },
+          "value": { "type": "number" },
+          "unit": { "type": "string" },
+          "direction": { "type": "string", "enum": ["DELIVERED", "RECEIVED"] },
+          "quality": { "type": "string", "enum": ["ACTUAL", "ESTIMATED", "MISSING"] }
+        }
+      }
+    }
+  }
+}
