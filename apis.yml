@@ -1,223 +1,216 @@
 aid: arcadia-power
 url: https://raw.githubusercontent.com/api-evangelist/arcadia-power/refs/heads/main/apis.yml
 apis:
-- aid: arcadia-power:arcadia-plug-api
-  name: Arcadia Plug API
-  tags:
-  - Energy
-  - Utility Data
-  - Clean Energy
-  - Bills
-  - Meters
-  - Intervals
-  humanURL: https://docs.arcadia.com/reference/introduction
-  baseURL: https://api.arcadia.com/plug
-  properties:
-  - url: https://docs.arcadia.com/reference/introduction
-    type: Documentation
-  - url: https://docs.arcadia.com/docs/api-quick-start-guide
-    type: GettingStarted
-  - url: openapi/arcadia-plug-api-openapi.yml
-    type: OpenAPI
-  - url: json-schema/arcadia-statement-schema.json
-    type: JSONSchema
-  - url: json-schema/arcadia-meter-schema.json
-    type: JSONSchema
-  - url: json-schema/arcadia-interval-schema.json
-    type: JSONSchema
-  - url: json-ld/arcadia-power-context.jsonld
-    type: JSONLD
-  - type: NaftikoCapability
-    url: capabilities/plug-accounts.yaml
-  - type: NaftikoCapability
-    url: capabilities/plug-statements.yaml
-  - type: NaftikoCapability
-    url: capabilities/plug-meters.yaml
-  - type: NaftikoCapability
-    url: capabilities/plug-intervals.yaml
-  description: The Arcadia Plug API is the flagship developer surface of the Arc data
-    platform — programmatic access to utility bill, statement, meter, interval, site,
-    and provider data sourced from thousands of US and international utilities. Plug
-    powers solar/storage modeling, EV charging, energy management, property management,
-    and carbon accounting use cases. OAuth 2.0 client-credentials authentication;
-    versioned via the Arcadia-Version header (current default 2024-02-21).
-- aid: arcadia-power:arcadia-connect-api
-  name: Arcadia Connect API
-  tags:
-  - Energy
-  - Utility Data
-  - Authentication
-  - Credentials
-  - Onboarding
-  humanURL: https://docs.arcadia.com/docs/connect-guide
-  properties:
-  - url: https://docs.arcadia.com/docs/connect-guide
-    type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/connect-credentials.yaml
-  description: Arcadia Connect is a hosted credential-collection web experience that
-    handles utility account onboarding — credential capture, MFA flows, one-time
-    passcodes, and credential refresh — without requiring partners to handle utility
-    passwords directly. The accompanying Connect API generates encoded session URLs
-    and exposes credential lifecycle endpoints (create, update, refresh, disable).
-- aid: arcadia-power:arcadia-signal-api
-  name: Arcadia Signal API
-  tags:
-  - Energy
-  - Utility Data
-  - Tariff
-  - Rates
-  - Real-Time
-  humanURL: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
-  properties:
-  - url: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
-    type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/signal-tariffs.yaml
-  description: Arcadia Signal provides utility tariff and energy rate data and calculations
-    for use in cost-benefit analyses, bill audits, project forecasting, and financial
-    modeling. Signal powers the Tariff & Energy Rate Calculator product and supports
-    customers building solar, storage, EV charging, and demand-response economics.
-- aid: arcadia-power:arcadia-webhooks-api
-  name: Arcadia Webhooks API
-  tags:
-  - Energy
-  - Webhooks
-  - Events
-  - Notifications
-  humanURL: https://docs.arcadia.com/reference/list-webhooks
-  properties:
-  - url: https://docs.arcadia.com/reference/list-webhooks
-    type: Documentation
-  - type: NaftikoCapability
-    url: capabilities/webhooks-events.yaml
-  description: List, retrieve, and resend webhooks for asynchronous Plug platform
-    events including statement availability, meter activation, interval data readiness,
-    and credential lifecycle changes. Arcadia recommends webhooks over polling for
-    production integrations.
-- aid: arcadia-power:arcadia-utility-cloud-api
-  name: Arcadia Utility Cloud API (Legacy)
-  tags:
-  - Energy
-  - Utility Data
-  - Legacy
-  humanURL: https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide
-  properties:
-  - url: https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide
-    type: Documentation
-  - url: https://docs.arcadia.com/v1.0-Utility-Cloud/reference/introduction
-    type: Documentation
-  description: The legacy Utility Cloud REST API — predecessor to the Plug API —
-    still documented for existing integrations. New integrations should use the Plug
-    API; the Utility Cloud version remains available for backward compatibility.
+  - aid: arcadia-power:arcadia-plug-api
+    name: Arcadia Plug API
+    tags:
+      - Energy
+      - Utility Data
+      - Clean Energy
+      - Bills
+      - Meters
+      - Intervals
+    humanURL: https://docs.arcadia.com/reference/introduction
+    baseURL: https://api.arcadia.com/plug
+    properties:
+      - url: https://docs.arcadia.com/reference/introduction
+        type: Documentation
+      - url: https://docs.arcadia.com/docs/api-quick-start-guide
+        type: GettingStarted
+      - url: openapi/arcadia-plug-api-openapi.yml
+        type: OpenAPI
+      - url: json-schema/arcadia-statement-schema.json
+        type: JSONSchema
+      - url: json-schema/arcadia-meter-schema.json
+        type: JSONSchema
+      - url: json-schema/arcadia-interval-schema.json
+        type: JSONSchema
+      - url: json-ld/arcadia-power-context.jsonld
+        type: JSONLD
+    description: >-
+      The Arcadia Plug API is the flagship developer surface of the Arc data platform — programmatic access to utility
+      bill, statement, meter, interval, site, and provider data sourced from thousands of US and international
+      utilities. Plug powers solar/storage modeling, EV charging, energy management, property management, and carbon
+      accounting use cases. OAuth 2.0 client-credentials authentication; versioned via the Arcadia-Version header
+      (current default 2024-02-21).
+  - aid: arcadia-power:arcadia-connect-api
+    name: Arcadia Connect API
+    tags:
+      - Energy
+      - Utility Data
+      - Authentication
+      - Credentials
+      - Onboarding
+    humanURL: https://docs.arcadia.com/docs/connect-guide
+    properties:
+      - url: https://docs.arcadia.com/docs/connect-guide
+        type: Documentation
+    description: >-
+      Arcadia Connect is a hosted credential-collection web experience that handles utility account onboarding —
+      credential capture, MFA flows, one-time passcodes, and credential refresh — without requiring partners to handle
+      utility passwords directly. The accompanying Connect API generates encoded session URLs and exposes credential
+      lifecycle endpoints (create, update, refresh, disable).
+  - aid: arcadia-power:arcadia-signal-api
+    name: Arcadia Signal API
+    tags:
+      - Energy
+      - Utility Data
+      - Tariff
+      - Rates
+      - Real-Time
+    humanURL: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
+    properties:
+      - url: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
+        type: Documentation
+    description: >-
+      Arcadia Signal provides utility tariff and energy rate data and calculations for use in cost-benefit analyses,
+      bill audits, project forecasting, and financial modeling. Signal powers the Tariff & Energy Rate Calculator
+      product and supports customers building solar, storage, EV charging, and demand-response economics.
+  - aid: arcadia-power:arcadia-webhooks-api
+    name: Arcadia Webhooks API
+    tags:
+      - Energy
+      - Webhooks
+      - Events
+      - Notifications
+    humanURL: https://docs.arcadia.com/reference/list-webhooks
+    properties:
+      - url: https://docs.arcadia.com/reference/list-webhooks
+        type: Documentation
+    description: >-
+      List, retrieve, and resend webhooks for asynchronous Plug platform events including statement availability, meter
+      activation, interval data readiness, and credential lifecycle changes. Arcadia recommends webhooks over polling
+      for production integrations.
+  - aid: arcadia-power:arcadia-utility-cloud-api
+    name: Arcadia Utility Cloud API (Legacy)
+    tags:
+      - Energy
+      - Utility Data
+      - Legacy
+    humanURL: https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide
+    properties:
+      - url: https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide
+        type: Documentation
+      - url: https://docs.arcadia.com/v1.0-Utility-Cloud/reference/introduction
+        type: Documentation
+    description: >-
+      The legacy Utility Cloud REST API — predecessor to the Plug API — still documented for existing integrations. New
+      integrations should use the Plug API; the Utility Cloud version remains available for backward compatibility.
 name: Arcadia
 tags:
-- Energy
-- Clean Energy
-- Utility Data
-- Climate
-- Sustainability
-- Carbon Accounting
-- Solar
-- Storage
-- EV Charging
-- Decarbonization
-- Energy Intelligence
+  - Energy
+  - Clean Energy
+  - Utility Data
+  - Climate
+  - Sustainability
+  - Carbon Accounting
+  - Solar
+  - Storage
+  - EV Charging
+  - Decarbonization
+  - Energy Intelligence
 kind: contract
 image: https://kinlane-productions2.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
-- type: Portal
-  url: https://www.arcadia.com
-- type: Documentation
-  url: https://docs.arcadia.com/
-- type: Documentation
-  name: Arc Platform
-  url: https://www.arcadia.com/arc
-- type: GettingStarted
-  url: https://docs.arcadia.com/docs/api-quick-start-guide
-- type: Documentation
-  name: Arcadia Data Model
-  url: https://docs.arcadia.com/docs/arcadia-data-model
-- type: SignUp
-  url: https://dashboard.arcadia.com
-- type: GitHubOrganization
-  url: https://github.com/arcadiapower
-- type: Blog
-  url: https://www.arcadia.com/blog
-- type: ChangeLog
-  url: https://docs.arcadia.com/changelog
-- type: PrivacyPolicy
-  url: https://www.arcadia.com/privacy-policy
-- type: TermsOfService
-  url: https://www.arcadia.com/terms-of-service
-- type: LinkedIn
-  url: https://www.linkedin.com/company/arcadiapower
-- type: Press
-  url: https://www.arcadia.com/press
-- type: Documentation
-  name: Plug API Reference
-  url: https://docs.arcadia.com/reference/introduction
-- type: Documentation
-  name: Signal API Quick Start
-  url: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
-- type: Documentation
-  name: Arcadia Connect Guide
-  url: https://docs.arcadia.com/docs/connect-guide
-- type: Documentation
-  name: Versioning Header
-  url: https://docs.arcadia.com/reference/introduction
-- type: Documentation
-  name: LLMs.txt for AI agents
-  url: https://docs.arcadia.com/llms.txt
-- type: Plans
-  url: plans/arcadia-power-plans-pricing.yml
-- type: RateLimits
-  url: rate-limits/arcadia-power-rate-limits.yml
-- type: FinOps
-  url: finops/arcadia-power-finops.yml
-- type: Features
-  data:
-  - Arc — unified utility data platform for bills, meters, intervals, providers, and sites
-  - Plug API for programmatic access to statements, meters, interval data, accounts, sites, providers, and files
-  - Arcadia Connect hosted credential UI handles utility logins, MFA, and one-time passcodes without partners storing utility credentials
-  - Signal API for tariff calculations, energy rates, and rate-based cost-benefit analysis
-  - 15-minute interval data for electric meters with bulk and on-demand delivery
-  - Coverage across thousands of US utilities plus international expansion
-  - OAuth 2.0 client-credentials authentication with one-hour bearer tokens
-  - Arcadia-Version request header for date-pinned API versioning (default 2024-02-21)
-  - Sandbox mode for safe end-to-end testing of credentials, statements, and intervals
-  - Webhook events for statement availability, meter activation, interval readiness, credential MFA, and lifecycle changes
-  - CSV download requests and bulk export streaming for large statement and interval pulls
-  - Arcadia Data Model normalizes provider tariffs, charges, taxes, and usage into a unified shape
-  - Enterprise Utility Bill Management, Energy Procurement Advisory, and Sustainability Reporting solutions
-  - ENGIE Impact acquired (April 2026) — sustainability advising, utility bill management, and procurement consultancy now under Arcadia
-  - Trusted by Ford, EVgo, Enphase, Oracle, UPS, Conagra, Penske, Iron Mountain, Intuit, and 25% of the Fortune 500
-  - Manages nearly $100B in utility spend and 580 million MWh of annual electricity usage post-ENGIE Impact
-  - Built for solar & storage, EV charging, energy management, property management, and carbon accounting integrators
-  sources:
-  - https://www.arcadia.com
-  - https://www.arcadia.com/arc
-  - https://docs.arcadia.com
-  - https://docs.arcadia.com/reference/introduction
-  - https://docs.arcadia.com/docs/api-quick-start-guide
-  - https://www.arcadia.com/press/arcadia-acquires-engie-impact
-  updated: '2026-05-25'
+  - type: Portal
+    url: https://www.arcadia.com
+  - type: Documentation
+    url: https://docs.arcadia.com/
+  - type: Documentation
+    name: Arc Platform
+    url: https://www.arcadia.com/arc
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: Documentation
+    name: Arcadia Data Model
+    url: https://docs.arcadia.com/docs/arcadia-data-model
+  - type: SignUp
+    url: https://dashboard.arcadia.com
+  - type: GitHubOrganization
+    url: https://github.com/arcadiapower
+  - type: Blog
+    url: https://www.arcadia.com/blog
+  - type: ChangeLog
+    url: https://docs.arcadia.com/changelog
+  - type: PrivacyPolicy
+    url: https://www.arcadia.com/privacy-policy
+  - type: TermsOfService
+    url: https://www.arcadia.com/terms-of-service
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/arcadiapower
+  - type: Press
+    url: https://www.arcadia.com/press
+  - type: Documentation
+    name: Plug API Reference
+    url: https://docs.arcadia.com/reference/introduction
+  - type: Documentation
+    name: Signal API Quick Start
+    url: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
+  - type: Documentation
+    name: Arcadia Connect Guide
+    url: https://docs.arcadia.com/docs/connect-guide
+  - type: Documentation
+    name: Versioning Header
+    url: https://docs.arcadia.com/reference/introduction
+  - type: Documentation
+    name: LLMs.txt for AI agents
+    url: https://docs.arcadia.com/llms.txt
+  - type: Plans
+    url: plans/arcadia-power-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/arcadia-power-rate-limits.yml
+  - type: FinOps
+    url: finops/arcadia-power-finops.yml
+  - type: Features
+    data:
+      - Arc — unified utility data platform for bills, meters, intervals, providers, and sites
+      - Plug API for programmatic access to statements, meters, interval data, accounts, sites, providers, and files
+      - >-
+        Arcadia Connect hosted credential UI handles utility logins, MFA, and one-time passcodes without partners
+        storing utility credentials
+      - Signal API for tariff calculations, energy rates, and rate-based cost-benefit analysis
+      - 15-minute interval data for electric meters with bulk and on-demand delivery
+      - Coverage across thousands of US utilities plus international expansion
+      - OAuth 2.0 client-credentials authentication with one-hour bearer tokens
+      - Arcadia-Version request header for date-pinned API versioning (default 2024-02-21)
+      - Sandbox mode for safe end-to-end testing of credentials, statements, and intervals
+      - >-
+        Webhook events for statement availability, meter activation, interval readiness, credential MFA, and lifecycle
+        changes
+      - CSV download requests and bulk export streaming for large statement and interval pulls
+      - Arcadia Data Model normalizes provider tariffs, charges, taxes, and usage into a unified shape
+      - Enterprise Utility Bill Management, Energy Procurement Advisory, and Sustainability Reporting solutions
+      - >-
+        ENGIE Impact acquired (April 2026) — sustainability advising, utility bill management, and procurement
+        consultancy now under Arcadia
+      - Trusted by Ford, EVgo, Enphase, Oracle, UPS, Conagra, Penske, Iron Mountain, Intuit, and 25% of the Fortune 500
+      - Manages nearly $100B in utility spend and 580 million MWh of annual electricity usage post-ENGIE Impact
+      - >-
+        Built for solar & storage, EV charging, energy management, property management, and carbon accounting
+        integrators
+    sources:
+      - https://www.arcadia.com
+      - https://www.arcadia.com/arc
+      - https://docs.arcadia.com
+      - https://docs.arcadia.com/reference/introduction
+      - https://docs.arcadia.com/docs/api-quick-start-guide
+      - https://www.arcadia.com/press/arcadia-acquires-engie-impact
+    updated: '2026-05-25'
 created: '2026-05-25T00:00:00.000Z'
 modified: '2026-05-25'
 position: Consuming
-description: Arcadia is a clean-energy access and energy-intelligence company that operates
-  Arc, a utility data platform giving developers programmatic access to utility bills,
-  statements, meters, interval (15-minute) usage data, tariff rates, and provider metadata
-  across thousands of US and international utilities. Arc combines the Plug API for utility
-  data, Arcadia Connect for hosted credential collection and MFA, Signal for tariff and
-  rate calculations, and webhooks for asynchronous events. Arcadia powers solar and storage
-  modeling, EV charging, energy management, property management, and carbon accounting
-  for customers including Ford, EVgo, Enphase, Oracle, UPS, Conagra, Penske, and ~25%
-  of the Fortune 500. In April 2026 Arcadia acquired ENGIE Impact, adding utility bill
-  management, energy procurement advisory, and sustainability reporting capabilities.
+description: >-
+  Arcadia is a clean-energy access and energy-intelligence company that operates Arc, a utility data platform giving
+  developers programmatic access to utility bills, statements, meters, interval (15-minute) usage data, tariff rates,
+  and provider metadata across thousands of US and international utilities. Arc combines the Plug API for utility data,
+  Arcadia Connect for hosted credential collection and MFA, Signal for tariff and rate calculations, and webhooks for
+  asynchronous events. Arcadia powers solar and storage modeling, EV charging, energy management, property management,
+  and carbon accounting for customers including Ford, EVgo, Enphase, Oracle, UPS, Conagra, Penske, and ~25% of the
+  Fortune 500. In April 2026 Arcadia acquired ENGIE Impact, adding utility bill management, energy procurement advisory,
+  and sustainability reporting capabilities.
 maintainers:
-- FN: Kin Lane
-  email: info@apievangelist.com
-  X: apievangelist
-  url: https://apievangelist.com
+  - FN: Kin Lane
+    email: info@apievangelist.com
+    X: apievangelist
+    url: https://apievangelist.com
