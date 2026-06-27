@@ -125,7 +125,7 @@ common:
   - type: Documentation
     name: Arcadia Data Model
     url: https://docs.arcadia.com/docs/arcadia-data-model
-  - type: SignUp
+  - type: Signup
     url: https://dashboard.arcadia.com
   - type: GitHubOrganization
     url: https://github.com/arcadiapower
