@@ -113,6 +113,14 @@ kind: contract
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 access: 3rd-Party
 common:
+  - type: TrustCenter
+    url: security/arcadia-power-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/arcadia-power-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/arcadia-power-domain-security.yml
+  - type: Authentication
+    url: authentication/arcadia-power-authentication.yml
   - type: Portal
     url: https://www.arcadia.com
   - type: Documentation
