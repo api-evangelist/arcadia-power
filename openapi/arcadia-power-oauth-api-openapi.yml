@@ -1,0 +1,79 @@
+openapi: 3.1.0
+info:
+  title: Arcadia Plug Accounts OAuth API
+  version: '2024-02-21'
+  description: 'The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
+
+    It provides programmatic access to utility accounts, statements (bills), meters,
+
+    interval (15-minute) usage data, providers, sites, files, and webhooks. Authentication
+
+    uses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to
+
+    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.
+
+    '
+  contact:
+    name: Arcadia API Support
+    url: https://docs.arcadia.com
+  license:
+    name: Arcadia API Terms
+    url: https://www.arcadia.com/terms-of-service
+servers:
+- url: https://api.arcadia.com
+  description: Production
+tags:
+- name: OAuth
+  description: Access token issuance.
+paths:
+  /oauth2/token:
+    post:
+      tags:
+      - OAuth
+      summary: Create an Access Token
+      operationId: createAccessToken
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - grant_type
+              - client_id
+              - client_secret
+              properties:
+                grant_type:
+                  type: string
+                  enum:
+                  - client_credentials
+                client_id:
+                  type: string
+                client_secret:
+                  type: string
+                scope:
+                  type: string
+      responses:
+        '200':
+          description: Token issued.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+                  token_type:
+                    type: string
+                    example: Bearer
+                  expires_in:
+                    type: integer
+                    example: 3600
+                  scope:
+                    type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,151 @@
+openapi: 3.1.0
+info:
+  title: Arcadia Plug Accounts Intervals API
+  version: '2024-02-21'
+  description: 'The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
+
+    It provides programmatic access to utility accounts, statements (bills), meters,
+
+    interval (15-minute) usage data, providers, sites, files, and webhooks. Authentication
+
+    uses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to
+
+    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.
+
+    '
+  contact:
+    name: Arcadia API Support
+    url: https://docs.arcadia.com
+  license:
+    name: Arcadia API Terms
+    url: https://www.arcadia.com/terms-of-service
+servers:
+- url: https://api.arcadia.com
+  description: Production
+tags:
+- name: Intervals
+  description: Time-series consumption data, typically 15-minute resolution.
+paths:
+  /plug/intervals/meters/{meterId}:
+    get:
+      tags:
+      - Intervals
+      summary: List Intervals for a Meter
+      operationId: listIntervalsForMeter
+      description: 'Retrieves utility-provided interval data for an electric meter. Returns up to
+
+        one year of historical data within the requested startAt/endAt range.
+
+        '
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: meterId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: startAt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: endAt
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Interval data series.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntervalSeries'
+      security:
+      - bearerAuth: []
+  /plug/intervals/meters/{meterId}/normalized:
+    get:
+      tags:
+      - Intervals
+      summary: List Normalized Intervals for a Meter
+      operationId: listNormalizedIntervalsForMeter
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: meterId
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: startAt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: endAt
+        schema:
+          type: string
+          format: date-time
+      responses:
+        '200':
+          description: Normalized interval data series.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntervalSeries'
+      security:
+      - bearerAuth: []
+components:
+  parameters:
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
+  schemas:
+    IntervalSeries:
+      type: object
+      properties:
+        meterId:
+          type: string
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        resolutionMinutes:
+          type: integer
+          example: 15
+        readings:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntervalReading'
+    IntervalReading:
+      type: object
+      properties:
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        value:
+          type: number
+          description: Usage value for the interval.
+        unit:
+          type: string
+          example: kWh
+        direction:
+          type: string
+          enum:
+          - DELIVERED
+          - RECEIVED
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

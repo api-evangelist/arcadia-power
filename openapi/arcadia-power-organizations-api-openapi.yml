@@ -1,0 +1,66 @@
+openapi: 3.1.0
+info:
+  title: Arcadia Plug Accounts Organizations API
+  version: '2024-02-21'
+  description: 'The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
+
+    It provides programmatic access to utility accounts, statements (bills), meters,
+
+    interval (15-minute) usage data, providers, sites, files, and webhooks. Authentication
+
+    uses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to
+
+    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.
+
+    '
+  contact:
+    name: Arcadia API Support
+    url: https://docs.arcadia.com
+  license:
+    name: Arcadia API Terms
+    url: https://www.arcadia.com/terms-of-service
+servers:
+- url: https://api.arcadia.com
+  description: Production
+tags:
+- name: Organizations
+  description: Top-level organization resource.
+paths:
+  /plug/organizations/{organizationId}:
+    get:
+      tags:
+      - Organizations
+      summary: Retrieve Organization
+      operationId: retrieveOrganization
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: organizationId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+      security:
+      - bearerAuth: []
+components:
+  parameters:
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
+  responses:
+    Ok:
+      description: Successful response.
+      content:
+        application/json: {}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

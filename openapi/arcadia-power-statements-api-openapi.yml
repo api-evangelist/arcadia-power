@@ -1,0 +1,207 @@
+openapi: 3.1.0
+info:
+  title: Arcadia Plug Accounts Statements API
+  version: '2024-02-21'
+  description: 'The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
+
+    It provides programmatic access to utility accounts, statements (bills), meters,
+
+    interval (15-minute) usage data, providers, sites, files, and webhooks. Authentication
+
+    uses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to
+
+    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.
+
+    '
+  contact:
+    name: Arcadia API Support
+    url: https://docs.arcadia.com
+  license:
+    name: Arcadia API Terms
+    url: https://www.arcadia.com/terms-of-service
+servers:
+- url: https://api.arcadia.com
+  description: Production
+tags:
+- name: Statements
+  description: Utility bills / statements pulled from the provider.
+paths:
+  /plug/statements:
+    get:
+      tags:
+      - Statements
+      summary: List Statements
+      operationId: listStatements
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Search'
+      - in: query
+        name: isCrossVersionSearch
+        schema:
+          type: boolean
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Paginated statements.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedStatements'
+      security:
+      - bearerAuth: []
+  /plug/statements/{statementId}:
+    get:
+      tags:
+      - Statements
+      summary: Retrieve Statement
+      operationId: retrieveStatement
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: statementId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Statement.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Statement'
+      security:
+      - bearerAuth: []
+  /plug/statements/{statementId}/download:
+    get:
+      tags:
+      - Statements
+      summary: Download Statement Source
+      operationId: downloadStatementSource
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: statementId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Source statement file.
+          content:
+            application/pdf: {}
+      security:
+      - bearerAuth: []
+components:
+  parameters:
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
+    Search:
+      in: query
+      name: search
+      schema:
+        type: string
+      description: Field-specific search expression.
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+      explode: true
+      description: Sort expression, format `property,(asc|desc)`.
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+      description: Zero-based page index.
+    Size:
+      in: query
+      name: size
+      schema:
+        type: integer
+        default: 20
+        maximum: 200
+      description: Page size.
+  schemas:
+    PaginatedStatements:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items:
+              $ref: '#/components/schemas/Statement'
+    Statement:
+      type: object
+      properties:
+        id:
+          type: string
+        accountId:
+          type: string
+        invoiceNumber:
+          type: string
+        statementDate:
+          type: string
+          format: date
+        periodStartDate:
+          type: string
+          format: date
+        periodEndDate:
+          type: string
+          format: date
+        dueDate:
+          type: string
+          format: date
+        amountDue:
+          type: number
+        outstandingBalance:
+          type: number
+        totalCharges:
+          type: number
+        provider:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+        meters:
+          type: array
+          items:
+            type: object
+        createdAt:
+          type: string
+          format: date-time
+        lastModifiedAt:
+          type: string
+          format: date-time
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

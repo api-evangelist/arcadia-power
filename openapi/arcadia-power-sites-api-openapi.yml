@@ -1,0 +1,127 @@
+openapi: 3.1.0
+info:
+  title: Arcadia Plug Accounts Sites API
+  version: '2024-02-21'
+  description: 'The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
+
+    It provides programmatic access to utility accounts, statements (bills), meters,
+
+    interval (15-minute) usage data, providers, sites, files, and webhooks. Authentication
+
+    uses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to
+
+    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.
+
+    '
+  contact:
+    name: Arcadia API Support
+    url: https://docs.arcadia.com
+  license:
+    name: Arcadia API Terms
+    url: https://www.arcadia.com/terms-of-service
+servers:
+- url: https://api.arcadia.com
+  description: Production
+tags:
+- name: Sites
+  description: Physical service locations grouping meters and accounts.
+paths:
+  /plug/sites:
+    get:
+      tags:
+      - Sites
+      summary: List Sites
+      operationId: listSites
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Sites
+      summary: Create Site
+      operationId: createSite
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                address:
+                  type: string
+      responses:
+        '201':
+          description: Site created.
+      security:
+      - bearerAuth: []
+  /plug/sites/{siteId}:
+    get:
+      tags:
+      - Sites
+      summary: Retrieve Site
+      operationId: retrieveSite
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: siteId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          $ref: '#/components/responses/Ok'
+      security:
+      - bearerAuth: []
+components:
+  parameters:
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
+    Search:
+      in: query
+      name: search
+      schema:
+        type: string
+      description: Field-specific search expression.
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+      description: Zero-based page index.
+    Size:
+      in: query
+      name: size
+      schema:
+        type: integer
+        default: 20
+        maximum: 200
+      description: Page size.
+  responses:
+    Ok:
+      description: Successful response.
+      content:
+        application/json: {}
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

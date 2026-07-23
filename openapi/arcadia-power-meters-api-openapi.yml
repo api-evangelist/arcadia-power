@@ -1,0 +1,168 @@
+openapi: 3.1.0
+info:
+  title: Arcadia Plug Accounts Meters API
+  version: '2024-02-21'
+  description: 'The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
+
+    It provides programmatic access to utility accounts, statements (bills), meters,
+
+    interval (15-minute) usage data, providers, sites, files, and webhooks. Authentication
+
+    uses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to
+
+    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.
+
+    '
+  contact:
+    name: Arcadia API Support
+    url: https://docs.arcadia.com
+  license:
+    name: Arcadia API Terms
+    url: https://www.arcadia.com/terms-of-service
+servers:
+- url: https://api.arcadia.com
+  description: Production
+tags:
+- name: Meters
+  description: Individual measurement devices associated with accounts and sites.
+paths:
+  /plug/meters:
+    get:
+      tags:
+      - Meters
+      summary: List Meters
+      operationId: listMeters
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - $ref: '#/components/parameters/Search'
+      - $ref: '#/components/parameters/Page'
+      - $ref: '#/components/parameters/Size'
+      - $ref: '#/components/parameters/Sort'
+      responses:
+        '200':
+          description: Paginated meters.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PaginatedMeters'
+      security:
+      - bearerAuth: []
+  /plug/meters/{meterId}:
+    get:
+      tags:
+      - Meters
+      summary: Retrieve Meter
+      operationId: retrieveMeter
+      parameters:
+      - $ref: '#/components/parameters/ArcadiaVersion'
+      - in: path
+        name: meterId
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Meter.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Meter'
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    Meter:
+      type: object
+      properties:
+        id:
+          type: string
+        meterNumber:
+          type: string
+        accountId:
+          type: string
+        siteId:
+          type: string
+        serviceAddress:
+          type: string
+        commodity:
+          type: string
+          enum:
+          - ELECTRIC
+          - NATURAL_GAS
+          - WATER
+          - OTHER
+        status:
+          type: string
+        provider:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+    PaginatedMeters:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items:
+              $ref: '#/components/schemas/Meter'
+  parameters:
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
+    Search:
+      in: query
+      name: search
+      schema:
+        type: string
+      description: Field-specific search expression.
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+      explode: true
+      description: Sort expression, format `property,(asc|desc)`.
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+      description: Zero-based page index.
+    Size:
+      in: query
+      name: size
+      schema:
+        type: integer
+        default: 20
+        maximum: 200
+      description: Page size.
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
