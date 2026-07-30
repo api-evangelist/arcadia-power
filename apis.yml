@@ -1,101 +1,313 @@
 aid: arcadia-power
 url: https://raw.githubusercontent.com/api-evangelist/arcadia-power/refs/heads/main/apis.yml
 apis:
-  - aid: arcadia-power:arcadia-plug-api
-    name: Arcadia Plug API
-    tags:
-      - Energy
-      - Utility Data
-      - Clean Energy
-      - Bills
-      - Meters
-      - Intervals
-    humanURL: https://docs.arcadia.com/reference/introduction
-    baseURL: https://api.arcadia.com/plug
-    properties:
-      - url: https://docs.arcadia.com/reference/introduction
-        type: Documentation
-      - url: https://docs.arcadia.com/docs/api-quick-start-guide
-        type: GettingStarted
-      - url: openapi/arcadia-plug-api-openapi.yml
-        type: OpenAPI
-      - url: json-schema/arcadia-statement-schema.json
-        type: JSONSchema
-      - url: json-schema/arcadia-meter-schema.json
-        type: JSONSchema
-      - url: json-schema/arcadia-interval-schema.json
-        type: JSONSchema
-      - url: json-ld/arcadia-power-context.jsonld
-        type: JSONLD
-    description: >-
-      The Arcadia Plug API is the flagship developer surface of the Arc data platform — programmatic access to utility
-      bill, statement, meter, interval, site, and provider data sourced from thousands of US and international
-      utilities. Plug powers solar/storage modeling, EV charging, energy management, property management, and carbon
-      accounting use cases. OAuth 2.0 client-credentials authentication; versioned via the Arcadia-Version header
-      (current default 2024-02-21).
-  - aid: arcadia-power:arcadia-connect-api
-    name: Arcadia Connect API
-    tags:
-      - Energy
-      - Utility Data
-      - Authentication
-      - Credentials
-      - Onboarding
-    humanURL: https://docs.arcadia.com/docs/connect-guide
-    properties:
-      - url: https://docs.arcadia.com/docs/connect-guide
-        type: Documentation
-    description: >-
-      Arcadia Connect is a hosted credential-collection web experience that handles utility account onboarding —
-      credential capture, MFA flows, one-time passcodes, and credential refresh — without requiring partners to handle
-      utility passwords directly. The accompanying Connect API generates encoded session URLs and exposes credential
-      lifecycle endpoints (create, update, refresh, disable).
-  - aid: arcadia-power:arcadia-signal-api
-    name: Arcadia Signal API
-    tags:
-      - Energy
-      - Utility Data
-      - Tariff
-      - Rates
-      - Real-Time
-    humanURL: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
-    properties:
-      - url: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
-        type: Documentation
-    description: >-
-      Arcadia Signal provides utility tariff and energy rate data and calculations for use in cost-benefit analyses,
-      bill audits, project forecasting, and financial modeling. Signal powers the Tariff & Energy Rate Calculator
-      product and supports customers building solar, storage, EV charging, and demand-response economics.
-  - aid: arcadia-power:arcadia-webhooks-api
-    name: Arcadia Webhooks API
-    tags:
-      - Energy
-      - Webhooks
-      - Events
-      - Notifications
-    humanURL: https://docs.arcadia.com/reference/list-webhooks
-    properties:
-      - url: https://docs.arcadia.com/reference/list-webhooks
-        type: Documentation
-    description: >-
-      List, retrieve, and resend webhooks for asynchronous Plug platform events including statement availability, meter
-      activation, interval data readiness, and credential lifecycle changes. Arcadia recommends webhooks over polling
-      for production integrations.
-  - aid: arcadia-power:arcadia-utility-cloud-api
-    name: Arcadia Utility Cloud API (Legacy)
-    tags:
-      - Energy
-      - Utility Data
-      - Legacy
-    humanURL: https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide
-    properties:
-      - url: https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide
-        type: Documentation
-      - url: https://docs.arcadia.com/v1.0-Utility-Cloud/reference/introduction
-        type: Documentation
-    description: >-
-      The legacy Utility Cloud REST API — predecessor to the Plug API — still documented for existing integrations. New
-      integrations should use the Plug API; the Utility Cloud version remains available for backward compatibility.
+- aid: arcadia-power:arcadia-connect-api
+  name: Arcadia Connect API
+  tags:
+  - Energy
+  - Utility Data
+  - Authentication
+  - Credentials
+  - Onboarding
+  humanURL: https://docs.arcadia.com/docs/connect-guide
+  properties:
+  - url: https://docs.arcadia.com/docs/connect-guide
+    type: Documentation
+  description: >-
+    Arcadia Connect is a hosted credential-collection web experience that handles utility account onboarding
+    — credential capture, MFA flows, one-time passcodes, and credential refresh — without requiring partners
+    to handle utility passwords directly. The accompanying Connect API generates encoded session URLs
+    and exposes credential lifecycle endpoints (create, update, refresh, disable).
+- aid: arcadia-power:arcadia-signal-api
+  name: Arcadia Signal API
+  tags:
+  - Energy
+  - Utility Data
+  - Tariff
+  - Rates
+  - Real-Time
+  humanURL: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
+  properties:
+  - url: https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start
+    type: Documentation
+  description: >-
+    Arcadia Signal provides utility tariff and energy rate data and calculations for use in cost-benefit
+    analyses, bill audits, project forecasting, and financial modeling. Signal powers the Tariff & Energy
+    Rate Calculator product and supports customers building solar, storage, EV charging, and demand-response
+    economics.
+- aid: arcadia-power:arcadia-webhooks-api
+  name: Arcadia Webhooks API
+  tags:
+  - Energy
+  - Webhooks
+  - Events
+  - Notifications
+  humanURL: https://docs.arcadia.com/reference/list-webhooks
+  properties:
+  - url: https://docs.arcadia.com/reference/list-webhooks
+    type: Documentation
+  description: >-
+    List, retrieve, and resend webhooks for asynchronous Plug platform events including statement availability,
+    meter activation, interval data readiness, and credential lifecycle changes. Arcadia recommends webhooks
+    over polling for production integrations.
+- aid: arcadia-power:arcadia-utility-cloud-api
+  name: Arcadia Utility Cloud API (Legacy)
+  tags:
+  - Energy
+  - Utility Data
+  - Legacy
+  humanURL: https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide
+  properties:
+  - url: https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide
+    type: Documentation
+  - url: https://docs.arcadia.com/v1.0-Utility-Cloud/reference/introduction
+    type: Documentation
+  description: >-
+    The legacy Utility Cloud REST API — predecessor to the Plug API — still documented for existing integrations.
+    New integrations should use the Plug API; the Utility Cloud version remains available for backward
+    compatibility.
+- aid: arcadia-power:arcadia-power-accounts-api
+  name: Arcadia Accounts API
+  description: Utility accounts discovered for a credential.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Accounts
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-accounts-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-credentials-api
+  name: Arcadia Credentials API
+  description: Utility-login credentials used to pull data on behalf of customers.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Credentials
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-credentials-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-files-api
+  name: Arcadia Files API
+  description: Source documents (PDFs, etc.) for statements and other artifacts.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Files
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-files-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-intervals-api
+  name: Arcadia Intervals API
+  description: Time-series consumption data, typically 15-minute resolution.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Intervals
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-intervals-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-meters-api
+  name: Arcadia Meters API
+  description: Individual measurement devices associated with accounts and sites.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Meters
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-meters-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-oauth-api
+  name: Arcadia OAuth API
+  description: Access token issuance.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-oauth-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-organizations-api
+  name: Arcadia Organizations API
+  description: Top-level organization resource.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-organizations-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-providers-api
+  name: Arcadia Providers API
+  description: Utility providers supported by the platform.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Providers
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-providers-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-sites-api
+  name: Arcadia Sites API
+  description: Physical service locations grouping meters and accounts.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Sites
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-sites-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-statements-api
+  name: Arcadia Statements API
+  description: Utility bills / statements pulled from the provider.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Statements
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-statements-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-webhooks-api
+  name: Arcadia Webhooks API
+  description: Asynchronous events for statement, meter, and credential lifecycle.
+  humanURL: https://docs.arcadia.com/reference/introduction
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
 name: Arcadia
 tags:
   - Energy
@@ -110,9 +322,24 @@ tags:
   - Decarbonization
   - Energy Intelligence
 kind: contract
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/arcadia-power.png
 access: 3rd-Party
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/arcadia/overview
   - type: AgenticAccess
     url: agentic-access/arcadia-power-agentic-access.yml
   - type: TrustCenter
