@@ -1,0 +1,381 @@
+{
+  "info": {
+    "_postman_id": "0c8cef5d-d424-46f7-9a9f-db73326a76db",
+    "name": "Arcadia Plug Accounts Webhooks API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:42.000Z",
+    "updatedAt": "2026-07-28T01:04:43.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-0c8cef5d-d424-46f7-9a9f-db73326a76db"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "webhooks",
+          "item": [
+            {
+              "name": "{webhookId}",
+              "item": [
+                {
+                  "name": "resend",
+                  "item": [
+                    {
+                      "name": "Resend Webhook",
+                      "id": "63b77f1b-1863-42fc-8050-fa417252a117",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "POST",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/webhooks/:webhookId/resend",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "webhooks",
+                            ":webhookId",
+                            "resend"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8445a603-2227-47d7-a61a-b4d64664a48b",
+                              "key": "webhookId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "92087ba2-cd49-4c6c-9b72-63d56985fec9",
+                          "name": "Resend queued.",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "description": "Date-pinned API version.",
+                                "key": "Arcadia-Version",
+                                "value": "2024-02-21"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/plug/webhooks/:webhookId/resend",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "plug",
+                                "webhooks",
+                                ":webhookId",
+                                "resend"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "webhookId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Accepted",
+                          "code": 202,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T01:04:43.000Z",
+                          "updatedAt": "2026-07-28T01:04:43.000Z",
+                          "uid": "35240-92087ba2-cd49-4c6c-9b72-63d56985fec9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:04:43.000Z",
+                      "updatedAt": "2026-07-28T01:04:43.000Z",
+                      "uid": "35240-63b77f1b-1863-42fc-8050-fa417252a117"
+                    }
+                  ],
+                  "id": "83b43bff-b3b8-4b20-8e5f-16d3c45c6c3a",
+                  "createdAt": "2026-07-28T01:04:43.000Z",
+                  "updatedAt": "2026-07-28T01:04:43.000Z",
+                  "uid": "35240-83b43bff-b3b8-4b20-8e5f-16d3c45c6c3a"
+                },
+                {
+                  "name": "Retrieve Webhook",
+                  "id": "8adf1077-32ca-4623-978b-0594cb0f01bd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/webhooks/:webhookId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "webhooks",
+                        ":webhookId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "2e9711ca-c114-4cd0-9afb-b5d40be2e7ed",
+                          "key": "webhookId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1eed7a63-d424-4c64-84ee-39d8eef60899",
+                      "name": "Successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/webhooks/:webhookId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "webhooks",
+                            ":webhookId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "webhookId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "",
+                      "createdAt": "2026-07-28T01:04:43.000Z",
+                      "updatedAt": "2026-07-28T01:04:43.000Z",
+                      "uid": "35240-1eed7a63-d424-4c64-84ee-39d8eef60899"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:43.000Z",
+                  "updatedAt": "2026-07-28T01:04:43.000Z",
+                  "uid": "35240-8adf1077-32ca-4623-978b-0594cb0f01bd"
+                }
+              ],
+              "id": "e8268a9d-0127-45e5-9df3-a744d16757d4",
+              "createdAt": "2026-07-28T01:04:43.000Z",
+              "updatedAt": "2026-07-28T01:04:43.000Z",
+              "uid": "35240-e8268a9d-0127-45e5-9df3-a744d16757d4"
+            },
+            {
+              "name": "List Webhooks",
+              "id": "65d727da-e2a8-4ab4-bb3b-49a1cac9622e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Date-pinned API version.",
+                    "key": "Arcadia-Version",
+                    "value": "2024-02-21"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plug/webhooks?page=0&size=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plug",
+                    "webhooks"
+                  ],
+                  "query": [
+                    {
+                      "description": "Zero-based page index.",
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "a9694a00-f943-472a-9012-913afbb6411b",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/webhooks?page=0&size=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "webhooks"
+                      ],
+                      "query": [
+                        {
+                          "description": "Zero-based page index.",
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Page size.",
+                          "key": "size",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "",
+                  "createdAt": "2026-07-28T01:04:43.000Z",
+                  "updatedAt": "2026-07-28T01:04:43.000Z",
+                  "uid": "35240-a9694a00-f943-472a-9012-913afbb6411b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:43.000Z",
+              "updatedAt": "2026-07-28T01:04:43.000Z",
+              "uid": "35240-65d727da-e2a8-4ab4-bb3b-49a1cac9622e"
+            }
+          ],
+          "id": "fbbf4613-2039-4943-85f0-ef4b6767d628",
+          "createdAt": "2026-07-28T01:04:43.000Z",
+          "updatedAt": "2026-07-28T01:04:43.000Z",
+          "uid": "35240-fbbf4613-2039-4943-85f0-ef4b6767d628"
+        }
+      ],
+      "id": "6c125a2c-bf04-4412-9126-991dd8d91c65",
+      "createdAt": "2026-07-28T01:04:43.000Z",
+      "updatedAt": "2026-07-28T01:04:43.000Z",
+      "uid": "35240-6c125a2c-bf04-4412-9126-991dd8d91c65"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

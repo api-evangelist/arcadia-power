@@ -1,0 +1,299 @@
+{
+  "info": {
+    "_postman_id": "dcc1330a-04b6-4aba-b14e-87a1d9ca309f",
+    "name": "Arcadia Plug Accounts API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:00.000Z",
+    "updatedAt": "2026-07-28T01:04:00.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-dcc1330a-04b6-4aba-b14e-87a1d9ca309f"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "accounts",
+          "item": [
+            {
+              "name": "{accountId}",
+              "item": [
+                {
+                  "name": "Retrieve Account",
+                  "id": "503506e4-fd8c-4b64-8aac-9c538985eb21",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/accounts/:accountId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "accounts",
+                        ":accountId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "aa6a2e4e-102f-4346-b78c-3b61a24b87b4",
+                          "key": "accountId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "30ba8480-cfe3-4adf-ba83-b0f17822d56e",
+                      "name": "Account.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/accounts/:accountId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "accounts",
+                            ":accountId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"accountNumber\": \"<string>\",\n  \"providerId\": \"<string>\",\n  \"status\": \"<string>\",\n  \"siteId\": \"<string>\",\n  \"createdAt\": \"<dateTime>\",\n  \"lastModifiedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:04:00.000Z",
+                      "updatedAt": "2026-07-28T01:04:00.000Z",
+                      "uid": "35240-30ba8480-cfe3-4adf-ba83-b0f17822d56e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:00.000Z",
+                  "updatedAt": "2026-07-28T01:04:00.000Z",
+                  "uid": "35240-503506e4-fd8c-4b64-8aac-9c538985eb21"
+                }
+              ],
+              "id": "46f17b1c-112d-45e4-a34d-b6574551e0d1",
+              "createdAt": "2026-07-28T01:04:00.000Z",
+              "updatedAt": "2026-07-28T01:04:00.000Z",
+              "uid": "35240-46f17b1c-112d-45e4-a34d-b6574551e0d1"
+            },
+            {
+              "name": "List Accounts",
+              "id": "1d0264b0-5ead-43d3-91b6-a641ec28157f",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Date-pinned API version.",
+                    "key": "Arcadia-Version",
+                    "value": "2024-02-21"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plug/accounts?search=<string>&page=0&size=20&sort=<string>&sort=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plug",
+                    "accounts"
+                  ],
+                  "query": [
+                    {
+                      "description": "Field-specific search expression.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Zero-based page index.",
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Sort expression, format `property,(asc|desc)`.",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort expression, format `property,(asc|desc)`.",
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "05d220cf-5b41-467d-b581-bbe4563d5a7d",
+                  "name": "Paginated list of accounts.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/accounts?search=<string>&page=0&size=20&sort=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "accounts"
+                      ],
+                      "query": [
+                        {
+                          "description": "Field-specific search expression.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Zero-based page index.",
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Page size.",
+                          "key": "size",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Sort expression, format `property,(asc|desc)`.",
+                          "key": "sort",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"totalElements\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"content\": [\n    {\n      \"id\": \"<string>\",\n      \"accountNumber\": \"<string>\",\n      \"providerId\": \"<string>\",\n      \"status\": \"<string>\",\n      \"siteId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastModifiedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"accountNumber\": \"<string>\",\n      \"providerId\": \"<string>\",\n      \"status\": \"<string>\",\n      \"siteId\": \"<string>\",\n      \"createdAt\": \"<dateTime>\",\n      \"lastModifiedAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:00.000Z",
+                  "updatedAt": "2026-07-28T01:04:00.000Z",
+                  "uid": "35240-05d220cf-5b41-467d-b581-bbe4563d5a7d"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:00.000Z",
+              "updatedAt": "2026-07-28T01:04:00.000Z",
+              "uid": "35240-1d0264b0-5ead-43d3-91b6-a641ec28157f"
+            }
+          ],
+          "id": "064cba0a-3712-4902-8782-afb80b7150ac",
+          "createdAt": "2026-07-28T01:04:00.000Z",
+          "updatedAt": "2026-07-28T01:04:00.000Z",
+          "uid": "35240-064cba0a-3712-4902-8782-afb80b7150ac"
+        }
+      ],
+      "id": "0bbce9de-3754-4315-9953-30757f893cb7",
+      "createdAt": "2026-07-28T01:04:00.000Z",
+      "updatedAt": "2026-07-28T01:04:00.000Z",
+      "uid": "35240-0bbce9de-3754-4315-9953-30757f893cb7"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

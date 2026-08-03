@@ -1,0 +1,299 @@
+{
+  "info": {
+    "_postman_id": "b13943f4-08fe-4b3b-b5db-9be28fa9b47f",
+    "name": "Arcadia Plug Accounts Providers API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:39.000Z",
+    "updatedAt": "2026-07-28T01:04:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b13943f4-08fe-4b3b-b5db-9be28fa9b47f"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "providers",
+          "item": [
+            {
+              "name": "{providerId}",
+              "item": [
+                {
+                  "name": "Retrieve Provider",
+                  "id": "dbc3bdfe-8452-495b-9104-24e0cafb54ee",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/providers/:providerId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "providers",
+                        ":providerId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "1b1fcddf-128b-437d-91a3-ab27930a2a92",
+                          "key": "providerId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "6cee9417-3593-4c4a-9156-1b50a00a930e",
+                      "name": "Successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/providers/:providerId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "providers",
+                            ":providerId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "providerId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "",
+                      "createdAt": "2026-07-28T01:04:40.000Z",
+                      "updatedAt": "2026-07-28T01:04:40.000Z",
+                      "uid": "35240-6cee9417-3593-4c4a-9156-1b50a00a930e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:40.000Z",
+                  "updatedAt": "2026-07-28T01:04:40.000Z",
+                  "uid": "35240-dbc3bdfe-8452-495b-9104-24e0cafb54ee"
+                }
+              ],
+              "id": "4a00823b-c859-4d3d-979c-8b10ffa052a2",
+              "createdAt": "2026-07-28T01:04:40.000Z",
+              "updatedAt": "2026-07-28T01:04:40.000Z",
+              "uid": "35240-4a00823b-c859-4d3d-979c-8b10ffa052a2"
+            },
+            {
+              "name": "List Providers",
+              "id": "9e005b82-fe5f-48b9-a1f6-63b4d8c9aad4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Date-pinned API version.",
+                    "key": "Arcadia-Version",
+                    "value": "2024-02-21"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plug/providers?search=<string>&page=0&size=20&sort=<string>&sort=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plug",
+                    "providers"
+                  ],
+                  "query": [
+                    {
+                      "description": "Field-specific search expression.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Zero-based page index.",
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Sort expression, format `property,(asc|desc)`.",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort expression, format `property,(asc|desc)`.",
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "acb7cccb-8903-4007-94a5-3df03d34a335",
+                  "name": "Paginated providers.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/providers?search=<string>&page=0&size=20&sort=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "providers"
+                      ],
+                      "query": [
+                        {
+                          "description": "Field-specific search expression.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Zero-based page index.",
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Page size.",
+                          "key": "size",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Sort expression, format `property,(asc|desc)`.",
+                          "key": "sort",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"totalElements\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"content\": [\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"authenticationCapabilities\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    },\n    {\n      \"id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"country\": \"<string>\",\n      \"region\": \"<string>\",\n      \"authenticationCapabilities\": [\n        \"<string>\",\n        \"<string>\"\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:40.000Z",
+                  "updatedAt": "2026-07-28T01:04:40.000Z",
+                  "uid": "35240-acb7cccb-8903-4007-94a5-3df03d34a335"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:40.000Z",
+              "updatedAt": "2026-07-28T01:04:40.000Z",
+              "uid": "35240-9e005b82-fe5f-48b9-a1f6-63b4d8c9aad4"
+            }
+          ],
+          "id": "f8a7eb7d-2b1b-4915-ad58-cf9f4be46427",
+          "createdAt": "2026-07-28T01:04:40.000Z",
+          "updatedAt": "2026-07-28T01:04:40.000Z",
+          "uid": "35240-f8a7eb7d-2b1b-4915-ad58-cf9f4be46427"
+        }
+      ],
+      "id": "7244d652-1b95-4a54-a8ae-8f26e4320d3f",
+      "createdAt": "2026-07-28T01:04:40.000Z",
+      "updatedAt": "2026-07-28T01:04:40.000Z",
+      "uid": "35240-7244d652-1b95-4a54-a8ae-8f26e4320d3f"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

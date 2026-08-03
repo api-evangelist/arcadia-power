@@ -1,0 +1,163 @@
+{
+  "info": {
+    "_postman_id": "2660bc0b-afb2-4e0c-b75d-b2bc45181500",
+    "name": "Arcadia Plug Accounts OAuth API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:38.000Z",
+    "updatedAt": "2026-07-28T01:04:38.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-2660bc0b-afb2-4e0c-b75d-b2bc45181500"
+  },
+  "item": [
+    {
+      "name": "oauth2",
+      "item": [
+        {
+          "name": "token",
+          "item": [
+            {
+              "name": "Create an Access Token",
+              "id": "dc480c04-6bc8-4ca0-93b3-314d7dfd3f43",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) ",
+                      "key": "grant_type",
+                      "value": "client_credentials"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "client_id",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) ",
+                      "key": "client_secret",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "scope",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/oauth2/token",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "oauth2",
+                    "token"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "50bfe144-294e-4e31-875c-bca6eff93817",
+                  "name": "Token issued.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "grant_type",
+                          "value": "client_credentials"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_id",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) ",
+                          "key": "client_secret",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "scope",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/oauth2/token",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "oauth2",
+                        "token"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"access_token\": \"<string>\",\n  \"token_type\": \"<string>\",\n  \"expires_in\": \"<integer>\",\n  \"scope\": \"<string>\"\n}",
+                  "createdAt": "2026-07-28T01:04:38.000Z",
+                  "updatedAt": "2026-07-28T01:04:38.000Z",
+                  "uid": "35240-50bfe144-294e-4e31-875c-bca6eff93817"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:38.000Z",
+              "updatedAt": "2026-07-28T01:04:38.000Z",
+              "uid": "35240-dc480c04-6bc8-4ca0-93b3-314d7dfd3f43"
+            }
+          ],
+          "id": "43bbe0a0-4170-4715-9f09-d06999f273ae",
+          "createdAt": "2026-07-28T01:04:38.000Z",
+          "updatedAt": "2026-07-28T01:04:38.000Z",
+          "uid": "35240-43bbe0a0-4170-4715-9f09-d06999f273ae"
+        }
+      ],
+      "id": "0b3880a7-0f01-4c97-babe-cfe30930e2c0",
+      "createdAt": "2026-07-28T01:04:38.000Z",
+      "updatedAt": "2026-07-28T01:04:38.000Z",
+      "uid": "35240-0b3880a7-0f01-4c97-babe-cfe30930e2c0"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

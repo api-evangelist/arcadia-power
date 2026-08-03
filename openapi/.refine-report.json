@@ -1,0 +1,34 @@
+{
+  "provider": "arcadia-power",
+  "sources": [
+    "arcadia-power-accounts-api-openapi.yml",
+    "arcadia-power-credentials-api-openapi.yml",
+    "arcadia-power-files-api-openapi.yml",
+    "arcadia-power-intervals-api-openapi.yml",
+    "arcadia-power-meters-api-openapi.yml",
+    "arcadia-power-oauth-api-openapi.yml",
+    "arcadia-power-organizations-api-openapi.yml",
+    "arcadia-power-providers-api-openapi.yml",
+    "arcadia-power-sites-api-openapi.yml",
+    "arcadia-power-statements-api-openapi.yml",
+    "arcadia-power-webhooks-api-openapi.yml"
+  ],
+  "outputs": [
+    "arcadia-power-accounts-api-openapi.yml",
+    "arcadia-power-credentials-api-openapi.yml",
+    "arcadia-power-files-api-openapi.yml",
+    "arcadia-power-intervals-api-openapi.yml",
+    "arcadia-power-meters-api-openapi.yml",
+    "arcadia-power-oauth-api-openapi.yml",
+    "arcadia-power-organizations-api-openapi.yml",
+    "arcadia-power-providers-api-openapi.yml",
+    "arcadia-power-sites-api-openapi.yml",
+    "arcadia-power-statements-api-openapi.yml",
+    "arcadia-power-webhooks-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

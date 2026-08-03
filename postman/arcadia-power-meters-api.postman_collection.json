@@ -1,0 +1,299 @@
+{
+  "info": {
+    "_postman_id": "3bf37719-502b-43d6-929f-3c8d2fd66ff0",
+    "name": "Arcadia Plug Accounts Meters API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:33.000Z",
+    "updatedAt": "2026-07-28T01:04:33.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3bf37719-502b-43d6-929f-3c8d2fd66ff0"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "meters",
+          "item": [
+            {
+              "name": "{meterId}",
+              "item": [
+                {
+                  "name": "Retrieve Meter",
+                  "id": "1730431b-6c3e-48bf-9607-e4837cf165bd",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/meters/:meterId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "meters",
+                        ":meterId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "fe3c894d-8c37-4a48-a732-94395bedb986",
+                          "key": "meterId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "557d37c4-2710-4f9a-917f-f6cff50e14ca",
+                      "name": "Meter.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/meters/:meterId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "meters",
+                            ":meterId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "meterId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"meterNumber\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"siteId\": \"<string>\",\n  \"serviceAddress\": \"<string>\",\n  \"commodity\": \"WATER\",\n  \"status\": \"<string>\",\n  \"provider\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T01:04:33.000Z",
+                      "updatedAt": "2026-07-28T01:04:33.000Z",
+                      "uid": "35240-557d37c4-2710-4f9a-917f-f6cff50e14ca"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:33.000Z",
+                  "updatedAt": "2026-07-28T01:04:33.000Z",
+                  "uid": "35240-1730431b-6c3e-48bf-9607-e4837cf165bd"
+                }
+              ],
+              "id": "a5323c1f-b240-4f6d-9bea-e1e29e385dc1",
+              "createdAt": "2026-07-28T01:04:33.000Z",
+              "updatedAt": "2026-07-28T01:04:33.000Z",
+              "uid": "35240-a5323c1f-b240-4f6d-9bea-e1e29e385dc1"
+            },
+            {
+              "name": "List Meters",
+              "id": "a77f976d-a721-4849-a49c-8f37e12e427e",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Date-pinned API version.",
+                    "key": "Arcadia-Version",
+                    "value": "2024-02-21"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plug/meters?search=<string>&page=0&size=20&sort=<string>&sort=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plug",
+                    "meters"
+                  ],
+                  "query": [
+                    {
+                      "description": "Field-specific search expression.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Zero-based page index.",
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Sort expression, format `property,(asc|desc)`.",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort expression, format `property,(asc|desc)`.",
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "b8d7cf0d-81a5-46be-befe-c08f929051ef",
+                  "name": "Paginated meters.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/meters?search=<string>&page=0&size=20&sort=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "meters"
+                      ],
+                      "query": [
+                        {
+                          "description": "Field-specific search expression.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Zero-based page index.",
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Page size.",
+                          "key": "size",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Sort expression, format `property,(asc|desc)`.",
+                          "key": "sort",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"totalElements\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"content\": [\n    {\n      \"id\": \"<string>\",\n      \"meterNumber\": \"<string>\",\n      \"accountId\": \"<string>\",\n      \"siteId\": \"<string>\",\n      \"serviceAddress\": \"<string>\",\n      \"commodity\": \"WATER\",\n      \"status\": \"<string>\",\n      \"provider\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<string>\",\n      \"meterNumber\": \"<string>\",\n      \"accountId\": \"<string>\",\n      \"siteId\": \"<string>\",\n      \"serviceAddress\": \"<string>\",\n      \"commodity\": \"ELECTRIC\",\n      \"status\": \"<string>\",\n      \"provider\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      }\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:33.000Z",
+                  "updatedAt": "2026-07-28T01:04:33.000Z",
+                  "uid": "35240-b8d7cf0d-81a5-46be-befe-c08f929051ef"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:33.000Z",
+              "updatedAt": "2026-07-28T01:04:33.000Z",
+              "uid": "35240-a77f976d-a721-4849-a49c-8f37e12e427e"
+            }
+          ],
+          "id": "f70d35f2-6993-4d75-8655-94bfec27bec9",
+          "createdAt": "2026-07-28T01:04:33.000Z",
+          "updatedAt": "2026-07-28T01:04:33.000Z",
+          "uid": "35240-f70d35f2-6993-4d75-8655-94bfec27bec9"
+        }
+      ],
+      "id": "e266e62c-1964-4168-9803-41b6402ac536",
+      "createdAt": "2026-07-28T01:04:33.000Z",
+      "updatedAt": "2026-07-28T01:04:33.000Z",
+      "uid": "35240-e266e62c-1964-4168-9803-41b6402ac536"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

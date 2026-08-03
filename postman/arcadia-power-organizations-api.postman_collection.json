@@ -1,0 +1,156 @@
+{
+  "info": {
+    "_postman_id": "1754d6c0-61f3-4ef8-aa34-e99093176947",
+    "name": "Arcadia Plug Accounts Organizations API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:38.000Z",
+    "updatedAt": "2026-07-28T01:04:39.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-1754d6c0-61f3-4ef8-aa34-e99093176947"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "organizations",
+          "item": [
+            {
+              "name": "{organizationId}",
+              "item": [
+                {
+                  "name": "Retrieve Organization",
+                  "id": "beb63981-752c-478c-9408-3020814ee3e1",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/organizations/:organizationId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "organizations",
+                        ":organizationId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "01b53781-4d35-40a6-989b-5c6d9b4da89a",
+                          "key": "organizationId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "dcb09bc9-9a5e-44be-8a68-d0ba7a649213",
+                      "name": "Successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/organizations/:organizationId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "organizations",
+                            ":organizationId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "organizationId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "",
+                      "createdAt": "2026-07-28T01:04:39.000Z",
+                      "updatedAt": "2026-07-28T01:04:39.000Z",
+                      "uid": "35240-dcb09bc9-9a5e-44be-8a68-d0ba7a649213"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:39.000Z",
+                  "updatedAt": "2026-07-28T01:04:39.000Z",
+                  "uid": "35240-beb63981-752c-478c-9408-3020814ee3e1"
+                }
+              ],
+              "id": "bb475d46-97ed-440c-a9c9-cd43c014d9d1",
+              "createdAt": "2026-07-28T01:04:39.000Z",
+              "updatedAt": "2026-07-28T01:04:39.000Z",
+              "uid": "35240-bb475d46-97ed-440c-a9c9-cd43c014d9d1"
+            }
+          ],
+          "id": "3aad6f2e-d061-4ddf-a7c9-4be510b76a3a",
+          "createdAt": "2026-07-28T01:04:39.000Z",
+          "updatedAt": "2026-07-28T01:04:39.000Z",
+          "uid": "35240-3aad6f2e-d061-4ddf-a7c9-4be510b76a3a"
+        }
+      ],
+      "id": "0b2685f5-a778-4f0c-b153-ab15fe0088c2",
+      "createdAt": "2026-07-28T01:04:39.000Z",
+      "updatedAt": "2026-07-28T01:04:39.000Z",
+      "uid": "35240-0b2685f5-a778-4f0c-b153-ab15fe0088c2"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

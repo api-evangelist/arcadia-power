@@ -1,0 +1,330 @@
+{
+  "info": {
+    "_postman_id": "ffecf554-b64b-4183-ad2a-d549f0b91442",
+    "name": "Arcadia Plug Accounts Intervals API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:32.000Z",
+    "updatedAt": "2026-07-28T01:04:32.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ffecf554-b64b-4183-ad2a-d549f0b91442"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "intervals",
+          "item": [
+            {
+              "name": "meters",
+              "item": [
+                {
+                  "name": "{meterId}",
+                  "item": [
+                    {
+                      "name": "normalized",
+                      "item": [
+                        {
+                          "name": "List Normalized Intervals for a Meter",
+                          "id": "5130c5a5-9023-4321-9aaf-f4008a71bea9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "auth": {
+                              "type": "bearer",
+                              "bearer": [
+                                {
+                                  "key": "token",
+                                  "value": "{{bearerToken}}",
+                                  "type": "string"
+                                }
+                              ]
+                            },
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Date-pinned API version.",
+                                "key": "Arcadia-Version",
+                                "value": "2024-02-21"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/plug/intervals/meters/:meterId/normalized?startAt=<dateTime>&endAt=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "plug",
+                                "intervals",
+                                "meters",
+                                ":meterId",
+                                "normalized"
+                              ],
+                              "query": [
+                                {
+                                  "key": "startAt",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "key": "endAt",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f6d4b124-64d0-489d-a8ed-d8f5d1e743a0",
+                                  "key": "meterId",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "9a8adb24-996c-4874-9c06-76054286a3eb",
+                              "name": "Normalized interval data series.",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Date-pinned API version.",
+                                    "key": "Arcadia-Version",
+                                    "value": "2024-02-21"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/plug/intervals/meters/:meterId/normalized?startAt=<dateTime>&endAt=<dateTime>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "plug",
+                                    "intervals",
+                                    "meters",
+                                    ":meterId",
+                                    "normalized"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "startAt",
+                                      "value": "<dateTime>"
+                                    },
+                                    {
+                                      "key": "endAt",
+                                      "value": "<dateTime>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "meterId"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"meterId\": \"<string>\",\n  \"startAt\": \"<dateTime>\",\n  \"endAt\": \"<dateTime>\",\n  \"resolutionMinutes\": \"<integer>\",\n  \"readings\": [\n    {\n      \"startAt\": \"<dateTime>\",\n      \"endAt\": \"<dateTime>\",\n      \"value\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"direction\": \"DELIVERED\"\n    },\n    {\n      \"startAt\": \"<dateTime>\",\n      \"endAt\": \"<dateTime>\",\n      \"value\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"direction\": \"DELIVERED\"\n    }\n  ]\n}",
+                              "createdAt": "2026-07-28T01:04:32.000Z",
+                              "updatedAt": "2026-07-28T01:04:32.000Z",
+                              "uid": "35240-9a8adb24-996c-4874-9c06-76054286a3eb"
+                            }
+                          ],
+                          "createdAt": "2026-07-28T01:04:32.000Z",
+                          "updatedAt": "2026-07-28T01:04:32.000Z",
+                          "uid": "35240-5130c5a5-9023-4321-9aaf-f4008a71bea9"
+                        }
+                      ],
+                      "id": "c4e0a3be-75fa-442e-b418-17731d0a6819",
+                      "createdAt": "2026-07-28T01:04:32.000Z",
+                      "updatedAt": "2026-07-28T01:04:32.000Z",
+                      "uid": "35240-c4e0a3be-75fa-442e-b418-17731d0a6819"
+                    },
+                    {
+                      "name": "List Intervals for a Meter",
+                      "id": "d3260249-1c1d-4b06-af71-d57046992dd3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/intervals/meters/:meterId?startAt=<dateTime>&endAt=<dateTime>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "intervals",
+                            "meters",
+                            ":meterId"
+                          ],
+                          "query": [
+                            {
+                              "key": "startAt",
+                              "value": "<dateTime>"
+                            },
+                            {
+                              "key": "endAt",
+                              "value": "<dateTime>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "27dd7189-9a95-43c5-86bb-973a439cff27",
+                              "key": "meterId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        },
+                        "description": "Retrieves utility-provided interval data for an electric meter. Returns up to\none year of historical data within the requested startAt/endAt range.\n"
+                      },
+                      "response": [
+                        {
+                          "id": "bd5bd6ab-3626-4c68-8c77-8871f0fa5806",
+                          "name": "Interval data series.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Date-pinned API version.",
+                                "key": "Arcadia-Version",
+                                "value": "2024-02-21"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/plug/intervals/meters/:meterId?startAt=<dateTime>&endAt=<dateTime>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "plug",
+                                "intervals",
+                                "meters",
+                                ":meterId"
+                              ],
+                              "query": [
+                                {
+                                  "key": "startAt",
+                                  "value": "<dateTime>"
+                                },
+                                {
+                                  "key": "endAt",
+                                  "value": "<dateTime>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "meterId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"meterId\": \"<string>\",\n  \"startAt\": \"<dateTime>\",\n  \"endAt\": \"<dateTime>\",\n  \"resolutionMinutes\": \"<integer>\",\n  \"readings\": [\n    {\n      \"startAt\": \"<dateTime>\",\n      \"endAt\": \"<dateTime>\",\n      \"value\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"direction\": \"DELIVERED\"\n    },\n    {\n      \"startAt\": \"<dateTime>\",\n      \"endAt\": \"<dateTime>\",\n      \"value\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"direction\": \"DELIVERED\"\n    }\n  ]\n}",
+                          "createdAt": "2026-07-28T01:04:32.000Z",
+                          "updatedAt": "2026-07-28T01:04:32.000Z",
+                          "uid": "35240-bd5bd6ab-3626-4c68-8c77-8871f0fa5806"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:04:32.000Z",
+                      "updatedAt": "2026-07-28T01:04:32.000Z",
+                      "uid": "35240-d3260249-1c1d-4b06-af71-d57046992dd3"
+                    }
+                  ],
+                  "id": "b80d72d6-7610-4c4e-87ea-abd3b0a90a5d",
+                  "createdAt": "2026-07-28T01:04:32.000Z",
+                  "updatedAt": "2026-07-28T01:04:32.000Z",
+                  "uid": "35240-b80d72d6-7610-4c4e-87ea-abd3b0a90a5d"
+                }
+              ],
+              "id": "963f9a3b-31e7-49e9-8d5f-932f7c39b864",
+              "createdAt": "2026-07-28T01:04:32.000Z",
+              "updatedAt": "2026-07-28T01:04:32.000Z",
+              "uid": "35240-963f9a3b-31e7-49e9-8d5f-932f7c39b864"
+            }
+          ],
+          "id": "e9c6c3aa-1b1c-4a94-9637-2a9544469f61",
+          "createdAt": "2026-07-28T01:04:32.000Z",
+          "updatedAt": "2026-07-28T01:04:32.000Z",
+          "uid": "35240-e9c6c3aa-1b1c-4a94-9637-2a9544469f61"
+        }
+      ],
+      "id": "5ae5d3aa-346d-4a8e-a6b8-9c8732023de8",
+      "createdAt": "2026-07-28T01:04:32.000Z",
+      "updatedAt": "2026-07-28T01:04:32.000Z",
+      "uid": "35240-5ae5d3aa-346d-4a8e-a6b8-9c8732023de8"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

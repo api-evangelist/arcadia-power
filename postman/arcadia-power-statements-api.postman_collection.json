@@ -1,0 +1,427 @@
+{
+  "info": {
+    "_postman_id": "61d433c0-6a94-4ae4-8be2-05df92457a24",
+    "name": "Arcadia Plug Accounts Statements API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:41.000Z",
+    "updatedAt": "2026-07-28T01:04:42.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-61d433c0-6a94-4ae4-8be2-05df92457a24"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "statements",
+          "item": [
+            {
+              "name": "{statementId}",
+              "item": [
+                {
+                  "name": "download",
+                  "item": [
+                    {
+                      "name": "Download Statement Source",
+                      "id": "5e0dc13c-97ca-4790-b602-bb51a1bd4134",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "auth": {
+                          "type": "bearer",
+                          "bearer": [
+                            {
+                              "key": "token",
+                              "value": "{{bearerToken}}",
+                              "type": "string"
+                            }
+                          ]
+                        },
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/pdf"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/statements/:statementId/download",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "statements",
+                            ":statementId",
+                            "download"
+                          ],
+                          "variable": [
+                            {
+                              "id": "7c113ebb-088e-4895-a1a9-f8df0c8116df",
+                              "key": "statementId",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "5f1289a8-ea07-436d-ab78-5f8a44eb82ce",
+                          "name": "Source statement file.",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Date-pinned API version.",
+                                "key": "Arcadia-Version",
+                                "value": "2024-02-21"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/pdf"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/plug/statements/:statementId/download",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "plug",
+                                "statements",
+                                ":statementId",
+                                "download"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "statementId"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/pdf"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "",
+                          "createdAt": "2026-07-28T01:04:42.000Z",
+                          "updatedAt": "2026-07-28T01:04:42.000Z",
+                          "uid": "35240-5f1289a8-ea07-436d-ab78-5f8a44eb82ce"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T01:04:42.000Z",
+                      "updatedAt": "2026-07-28T01:04:42.000Z",
+                      "uid": "35240-5e0dc13c-97ca-4790-b602-bb51a1bd4134"
+                    }
+                  ],
+                  "id": "da20b470-1ac7-41bb-bd7c-585984645076",
+                  "createdAt": "2026-07-28T01:04:42.000Z",
+                  "updatedAt": "2026-07-28T01:04:42.000Z",
+                  "uid": "35240-da20b470-1ac7-41bb-bd7c-585984645076"
+                },
+                {
+                  "name": "Retrieve Statement",
+                  "id": "bca08aa5-b789-41db-b7a5-15e369dcd298",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/statements/:statementId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "statements",
+                        ":statementId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "ed3db845-5089-428e-9efa-0c169af1b975",
+                          "key": "statementId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0067a046-8255-4dab-81a5-292209c22206",
+                      "name": "Statement.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/statements/:statementId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "statements",
+                            ":statementId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "statementId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<string>\",\n  \"accountId\": \"<string>\",\n  \"invoiceNumber\": \"<string>\",\n  \"statementDate\": \"<date>\",\n  \"periodStartDate\": \"<date>\",\n  \"periodEndDate\": \"<date>\",\n  \"dueDate\": \"<date>\",\n  \"amountDue\": \"<number>\",\n  \"outstandingBalance\": \"<number>\",\n  \"totalCharges\": \"<number>\",\n  \"provider\": {\n    \"id\": \"<string>\",\n    \"name\": \"<string>\"\n  },\n  \"createdAt\": \"<dateTime>\",\n  \"lastModifiedAt\": \"<dateTime>\"\n}",
+                      "createdAt": "2026-07-28T01:04:42.000Z",
+                      "updatedAt": "2026-07-28T01:04:42.000Z",
+                      "uid": "35240-0067a046-8255-4dab-81a5-292209c22206"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:42.000Z",
+                  "updatedAt": "2026-07-28T01:04:42.000Z",
+                  "uid": "35240-bca08aa5-b789-41db-b7a5-15e369dcd298"
+                }
+              ],
+              "id": "4ae3d070-e807-4024-8ebe-914704c68c1c",
+              "createdAt": "2026-07-28T01:04:42.000Z",
+              "updatedAt": "2026-07-28T01:04:42.000Z",
+              "uid": "35240-4ae3d070-e807-4024-8ebe-914704c68c1c"
+            },
+            {
+              "name": "List Statements",
+              "id": "dcae65e7-3988-430c-9e20-8ea34386d922",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Date-pinned API version.",
+                    "key": "Arcadia-Version",
+                    "value": "2024-02-21"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plug/statements?search=<string>&isCrossVersionSearch=<boolean>&page=0&size=20&sort=<string>&sort=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plug",
+                    "statements"
+                  ],
+                  "query": [
+                    {
+                      "description": "Field-specific search expression.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "isCrossVersionSearch",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Zero-based page index.",
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "description": "Sort expression, format `property,(asc|desc)`.",
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Sort expression, format `property,(asc|desc)`.",
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "1b4f76db-8ea3-4103-8d59-da32f7748dd2",
+                  "name": "Paginated statements.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/statements?search=<string>&isCrossVersionSearch=<boolean>&page=0&size=20&sort=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "statements"
+                      ],
+                      "query": [
+                        {
+                          "description": "Field-specific search expression.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "key": "isCrossVersionSearch",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Zero-based page index.",
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Page size.",
+                          "key": "size",
+                          "value": "20"
+                        },
+                        {
+                          "description": "Sort expression, format `property,(asc|desc)`.",
+                          "key": "sort",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"page\": \"<integer>\",\n  \"size\": \"<integer>\",\n  \"totalElements\": \"<integer>\",\n  \"totalPages\": \"<integer>\",\n  \"content\": [\n    {\n      \"id\": \"<string>\",\n      \"accountId\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"statementDate\": \"<date>\",\n      \"periodStartDate\": \"<date>\",\n      \"periodEndDate\": \"<date>\",\n      \"dueDate\": \"<date>\",\n      \"amountDue\": \"<number>\",\n      \"outstandingBalance\": \"<number>\",\n      \"totalCharges\": \"<number>\",\n      \"provider\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"lastModifiedAt\": \"<dateTime>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"accountId\": \"<string>\",\n      \"invoiceNumber\": \"<string>\",\n      \"statementDate\": \"<date>\",\n      \"periodStartDate\": \"<date>\",\n      \"periodEndDate\": \"<date>\",\n      \"dueDate\": \"<date>\",\n      \"amountDue\": \"<number>\",\n      \"outstandingBalance\": \"<number>\",\n      \"totalCharges\": \"<number>\",\n      \"provider\": {\n        \"id\": \"<string>\",\n        \"name\": \"<string>\"\n      },\n      \"createdAt\": \"<dateTime>\",\n      \"lastModifiedAt\": \"<dateTime>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T01:04:42.000Z",
+                  "updatedAt": "2026-07-28T01:04:42.000Z",
+                  "uid": "35240-1b4f76db-8ea3-4103-8d59-da32f7748dd2"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:42.000Z",
+              "updatedAt": "2026-07-28T01:04:42.000Z",
+              "uid": "35240-dcae65e7-3988-430c-9e20-8ea34386d922"
+            }
+          ],
+          "id": "3f8fb814-4784-430a-bb8a-bfc0f0a2d713",
+          "createdAt": "2026-07-28T01:04:42.000Z",
+          "updatedAt": "2026-07-28T01:04:42.000Z",
+          "uid": "35240-3f8fb814-4784-430a-bb8a-bfc0f0a2d713"
+        }
+      ],
+      "id": "2b16262a-966b-4672-ad38-05110c564e1c",
+      "createdAt": "2026-07-28T01:04:42.000Z",
+      "updatedAt": "2026-07-28T01:04:42.000Z",
+      "uid": "35240-2b16262a-966b-4672-ad38-05110c564e1c"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

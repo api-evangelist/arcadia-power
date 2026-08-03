@@ -1,0 +1,393 @@
+{
+  "info": {
+    "_postman_id": "05848f3d-8812-4b37-bdb2-1616d8e94443",
+    "name": "Arcadia Plug Accounts Sites API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:40.000Z",
+    "updatedAt": "2026-07-28T01:04:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-05848f3d-8812-4b37-bdb2-1616d8e94443"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "sites",
+          "item": [
+            {
+              "name": "{siteId}",
+              "item": [
+                {
+                  "name": "Retrieve Site",
+                  "id": "ade2fafc-261a-4e87-ac75-b3e9d24041dc",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/sites/:siteId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "sites",
+                        ":siteId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "013bed70-732a-4c21-abb9-8545bf841969",
+                          "key": "siteId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "604a56fb-1731-4e3d-ba8d-18a5f6997fd9",
+                      "name": "Successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/sites/:siteId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "sites",
+                            ":siteId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "siteId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "",
+                      "createdAt": "2026-07-28T01:04:41.000Z",
+                      "updatedAt": "2026-07-28T01:04:41.000Z",
+                      "uid": "35240-604a56fb-1731-4e3d-ba8d-18a5f6997fd9"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:41.000Z",
+                  "updatedAt": "2026-07-28T01:04:41.000Z",
+                  "uid": "35240-ade2fafc-261a-4e87-ac75-b3e9d24041dc"
+                }
+              ],
+              "id": "ea9ff2f9-752d-452b-8463-b21e3814a61f",
+              "createdAt": "2026-07-28T01:04:41.000Z",
+              "updatedAt": "2026-07-28T01:04:41.000Z",
+              "uid": "35240-ea9ff2f9-752d-452b-8463-b21e3814a61f"
+            },
+            {
+              "name": "List Sites",
+              "id": "84567f96-a0f0-4723-8566-796636f557c3",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Date-pinned API version.",
+                    "key": "Arcadia-Version",
+                    "value": "2024-02-21"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plug/sites?search=<string>&page=0&size=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plug",
+                    "sites"
+                  ],
+                  "query": [
+                    {
+                      "description": "Field-specific search expression.",
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Zero-based page index.",
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "13229411-c985-48a9-accc-13c941712c7b",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/sites?search=<string>&page=0&size=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "sites"
+                      ],
+                      "query": [
+                        {
+                          "description": "Field-specific search expression.",
+                          "key": "search",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Zero-based page index.",
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Page size.",
+                          "key": "size",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "",
+                  "createdAt": "2026-07-28T01:04:41.000Z",
+                  "updatedAt": "2026-07-28T01:04:41.000Z",
+                  "uid": "35240-13229411-c985-48a9-accc-13c941712c7b"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:41.000Z",
+              "updatedAt": "2026-07-28T01:04:41.000Z",
+              "uid": "35240-84567f96-a0f0-4723-8566-796636f557c3"
+            },
+            {
+              "name": "Create Site",
+              "id": "0511edda-7e65-4276-916a-7c56e94035a4",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "Date-pinned API version.",
+                    "key": "Arcadia-Version",
+                    "value": "2024-02-21"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"name\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/plug/sites",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plug",
+                    "sites"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d3bed14f-583f-42d4-8b53-51e1e7da008a",
+                  "name": "Site created.",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"address\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/sites",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "sites"
+                      ]
+                    }
+                  },
+                  "status": "Created",
+                  "code": 201,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T01:04:41.000Z",
+                  "updatedAt": "2026-07-28T01:04:41.000Z",
+                  "uid": "35240-d3bed14f-583f-42d4-8b53-51e1e7da008a"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:41.000Z",
+              "updatedAt": "2026-07-28T01:04:41.000Z",
+              "uid": "35240-0511edda-7e65-4276-916a-7c56e94035a4"
+            }
+          ],
+          "id": "45919244-6557-4d37-a63d-d83f169b04fe",
+          "createdAt": "2026-07-28T01:04:41.000Z",
+          "updatedAt": "2026-07-28T01:04:41.000Z",
+          "uid": "35240-45919244-6557-4d37-a63d-d83f169b04fe"
+        }
+      ],
+      "id": "ba69f858-22e4-41b2-8306-26a7864bfdab",
+      "createdAt": "2026-07-28T01:04:41.000Z",
+      "updatedAt": "2026-07-28T01:04:41.000Z",
+      "uid": "35240-ba69f858-22e4-41b2-8306-26a7864bfdab"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}

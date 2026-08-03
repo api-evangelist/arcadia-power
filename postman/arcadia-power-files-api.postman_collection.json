@@ -1,0 +1,274 @@
+{
+  "info": {
+    "_postman_id": "bcae6a31-2b5b-4a10-87ba-95fd1809300b",
+    "name": "Arcadia Plug Accounts Files API",
+    "description": "The Arcadia Plug API is the primary developer surface of the Arc utility data platform.\nIt provides programmatic access to utility accounts, statements (bills), meters,\ninterval (15-minute) usage data, providers, sites, files, and webhooks. Authentication\nuses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to\na dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.\n\n\nContact Support:\n Name: Arcadia API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T01:04:02.000Z",
+    "updatedAt": "2026-07-28T01:04:02.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bcae6a31-2b5b-4a10-87ba-95fd1809300b"
+  },
+  "item": [
+    {
+      "name": "plug",
+      "item": [
+        {
+          "name": "files",
+          "item": [
+            {
+              "name": "{fileId}",
+              "item": [
+                {
+                  "name": "Retrieve File",
+                  "id": "eb89baa5-20a3-40a7-8315-8b00ae423d5c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "auth": {
+                      "type": "bearer",
+                      "bearer": [
+                        {
+                          "key": "token",
+                          "value": "{{bearerToken}}",
+                          "type": "string"
+                        }
+                      ]
+                    },
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/files/:fileId",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "files",
+                        ":fileId"
+                      ],
+                      "variable": [
+                        {
+                          "id": "5c0382bd-655c-45de-818a-d0bce52d68db",
+                          "key": "fileId",
+                          "value": "<string>",
+                          "description": "(Required) "
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "0a99a194-da78-48fa-be4a-2939b77c2c88",
+                      "name": "Successful response.",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Date-pinned API version.",
+                            "key": "Arcadia-Version",
+                            "value": "2024-02-21"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/plug/files/:fileId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "plug",
+                            "files",
+                            ":fileId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "fileId"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "",
+                      "createdAt": "2026-07-28T01:04:02.000Z",
+                      "updatedAt": "2026-07-28T01:04:02.000Z",
+                      "uid": "35240-0a99a194-da78-48fa-be4a-2939b77c2c88"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T01:04:02.000Z",
+                  "updatedAt": "2026-07-28T01:04:02.000Z",
+                  "uid": "35240-eb89baa5-20a3-40a7-8315-8b00ae423d5c"
+                }
+              ],
+              "id": "d79d38ed-7911-4bf2-b986-b4c53d4073ad",
+              "createdAt": "2026-07-28T01:04:02.000Z",
+              "updatedAt": "2026-07-28T01:04:02.000Z",
+              "uid": "35240-d79d38ed-7911-4bf2-b986-b4c53d4073ad"
+            },
+            {
+              "name": "List Files",
+              "id": "e3912cda-3e77-436c-be05-e27713f8d3cb",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "{{bearerToken}}",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Date-pinned API version.",
+                    "key": "Arcadia-Version",
+                    "value": "2024-02-21"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/plug/files?page=0&size=20",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "plug",
+                    "files"
+                  ],
+                  "query": [
+                    {
+                      "description": "Zero-based page index.",
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "description": "Page size.",
+                      "key": "size",
+                      "value": "20"
+                    }
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "id": "d0c60f2f-cdeb-4bb0-87d1-62f0088e5fb4",
+                  "name": "Successful response.",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Date-pinned API version.",
+                        "key": "Arcadia-Version",
+                        "value": "2024-02-21"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/plug/files?page=0&size=20",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "plug",
+                        "files"
+                      ],
+                      "query": [
+                        {
+                          "description": "Zero-based page index.",
+                          "key": "page",
+                          "value": "0"
+                        },
+                        {
+                          "description": "Page size.",
+                          "key": "size",
+                          "value": "20"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "",
+                  "createdAt": "2026-07-28T01:04:02.000Z",
+                  "updatedAt": "2026-07-28T01:04:02.000Z",
+                  "uid": "35240-d0c60f2f-cdeb-4bb0-87d1-62f0088e5fb4"
+                }
+              ],
+              "createdAt": "2026-07-28T01:04:02.000Z",
+              "updatedAt": "2026-07-28T01:04:02.000Z",
+              "uid": "35240-e3912cda-3e77-436c-be05-e27713f8d3cb"
+            }
+          ],
+          "id": "73e5c02b-1919-4a26-a349-e669e9a4d7a9",
+          "createdAt": "2026-07-28T01:04:02.000Z",
+          "updatedAt": "2026-07-28T01:04:02.000Z",
+          "uid": "35240-73e5c02b-1919-4a26-a349-e669e9a4d7a9"
+        }
+      ],
+      "id": "79762606-0378-40e6-9a17-0f88cac80118",
+      "createdAt": "2026-07-28T01:04:02.000Z",
+      "updatedAt": "2026-07-28T01:04:02.000Z",
+      "uid": "35240-79762606-0378-40e6-9a17-0f88cac80118"
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.arcadia.com"
+    }
+  ]
+}
