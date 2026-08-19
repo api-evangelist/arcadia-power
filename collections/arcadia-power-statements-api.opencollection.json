@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Arcadia Plug Accounts Statements API",
+    "version": "2024-02-21"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Statements",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List Statements",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.arcadia.com/plug/statements",
+            "headers": [
+              {
+                "name": "Arcadia-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query",
+                "description": "Field-specific search expression."
+              },
+              {
+                "name": "isCrossVersionSearch",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "Page size."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sort expression, format `property,(asc|desc)`."
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "List Statements"
+        },
+        {
+          "info": {
+            "name": "Retrieve Statement",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.arcadia.com/plug/statements/:statementId",
+            "headers": [
+              {
+                "name": "Arcadia-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "statementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Retrieve Statement"
+        },
+        {
+          "info": {
+            "name": "Download Statement Source",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.arcadia.com/plug/statements/:statementId/download",
+            "headers": [
+              {
+                "name": "Arcadia-Version",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "statementId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "auth": {
+              "type": "bearer",
+              "token": "{{bearerToken}}"
+            }
+          },
+          "docs": "Download Statement Source"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
