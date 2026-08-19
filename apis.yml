@@ -1,5 +1,6 @@
 aid: arcadia-power
 url: https://raw.githubusercontent.com/api-evangelist/arcadia-power/refs/heads/main/apis.yml
+specificationVersion: '0.23'
 apis:
 - aid: arcadia-power:arcadia-connect-api
   name: Arcadia Connect API
