@@ -40,6 +40,11 @@ apis:
   name: Arcadia Webhooks API
   tags:
   - Energy
+  - Webhook
+  - Event
+  - Notification
+  tags_raw:
+  - Energy
   - Webhooks
   - Events
   - Notifications
@@ -73,6 +78,8 @@ apis:
   humanURL: https://docs.arcadia.com/reference/introduction
   baseURL: https://api.arcadia.com/plug
   tags:
+  - Account
+  tags_raw:
   - Accounts
   properties:
   - type: OpenAPI
@@ -117,6 +124,8 @@ apis:
   humanURL: https://docs.arcadia.com/reference/introduction
   baseURL: https://api.arcadia.com/plug
   tags:
+  - File
+  tags_raw:
   - Files
   properties:
   - type: OpenAPI
@@ -183,6 +192,8 @@ apis:
   humanURL: https://docs.arcadia.com/reference/introduction
   baseURL: https://api.arcadia.com/plug
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
@@ -205,6 +216,8 @@ apis:
   humanURL: https://docs.arcadia.com/reference/introduction
   baseURL: https://api.arcadia.com/plug
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
@@ -293,6 +306,8 @@ apis:
   humanURL: https://docs.arcadia.com/reference/introduction
   baseURL: https://api.arcadia.com/plug
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
