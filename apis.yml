@@ -367,6 +367,8 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/arcadia-power.png
 access: 3rd-Party
 common:
+  - type: Website
+    url: https://www.arcadia.com/
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/arcadia/overview
   - type: AgenticAccess
