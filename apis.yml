@@ -198,30 +198,6 @@ apis:
     url: json-schema/arcadia-interval-schema.json
   - type: JSONLD
     url: json-ld/arcadia-power-context.jsonld
-- aid: arcadia-power:arcadia-power-oauth-api
-  name: Arcadia OAuth API
-  description: Access token issuance.
-  humanURL: https://docs.arcadia.com/reference/introduction
-  baseURL: https://api.arcadia.com/plug
-  tags:
-  - Authentication
-  tags_raw:
-  - OAuth
-  properties:
-  - type: OpenAPI
-    url: openapi/arcadia-power-oauth-api-openapi.yml
-  - type: Documentation
-    url: https://docs.arcadia.com/reference/introduction
-  - type: GettingStarted
-    url: https://docs.arcadia.com/docs/api-quick-start-guide
-  - type: JSONSchema
-    url: json-schema/arcadia-statement-schema.json
-  - type: JSONSchema
-    url: json-schema/arcadia-meter-schema.json
-  - type: JSONSchema
-    url: json-schema/arcadia-interval-schema.json
-  - type: JSONLD
-    url: json-ld/arcadia-power-context.jsonld
 - aid: arcadia-power:arcadia-power-organizations-api
   name: Arcadia Organizations API
   description: Top-level organization resource.
@@ -324,6 +300,28 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/arcadia-power-webhooks-api-openapi.yml
+  - type: Documentation
+    url: https://docs.arcadia.com/reference/introduction
+  - type: GettingStarted
+    url: https://docs.arcadia.com/docs/api-quick-start-guide
+  - type: JSONSchema
+    url: json-schema/arcadia-statement-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-meter-schema.json
+  - type: JSONSchema
+    url: json-schema/arcadia-interval-schema.json
+  - type: JSONLD
+    url: json-ld/arcadia-power-context.jsonld
+- aid: arcadia-power:arcadia-power-oauth-api
+  name: Arcadia O Auth API
+  description: Access token issuance.
+  humanURL: https://docs.arcadia.com/docs/connect-guide
+  baseURL: https://api.arcadia.com/plug
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/arcadia-power-oauth-api-openapi.yml
   - type: Documentation
     url: https://docs.arcadia.com/reference/introduction
   - type: GettingStarted
