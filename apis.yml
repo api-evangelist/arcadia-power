@@ -36,6 +36,12 @@ apis:
   tags:
   - Energy
   - Utility Data
+  - Tariffs
+  - Rates
+  - Real-Time
+  tags_raw:
+  - Energy
+  - Utility Data
   - Tariff
   - Rates
   - Real-Time
@@ -318,6 +324,8 @@ apis:
   humanURL: https://docs.arcadia.com/docs/connect-guide
   baseURL: https://api.arcadia.com/plug
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
