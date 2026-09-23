@@ -1,6 +1,6 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Arcadia Plug Accounts Files API
+  title: Arcadia Plug Files API
   version: '2024-02-21'
   description: 'The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
 
@@ -10,9 +10,7 @@ info:
 
     uses OAuth 2.0 client credentials; an Arcadia-Version header pins request behavior to
 
-    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.
-
-    '
+    a dated API revision (default 2024-02-21). Sandbox mode is available end-to-end.'
   contact:
     name: Arcadia API Support
     url: https://docs.arcadia.com
@@ -69,14 +67,6 @@ components:
         default: 20
         maximum: 200
       description: Page size.
-    ArcadiaVersion:
-      in: header
-      name: Arcadia-Version
-      required: false
-      schema:
-        type: string
-        default: '2024-02-21'
-      description: Date-pinned API version.
     Page:
       in: query
       name: page
@@ -85,6 +75,14 @@ components:
         default: 0
         minimum: 0
       description: Zero-based page index.
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
   responses:
     Ok:
       description: Successful response.

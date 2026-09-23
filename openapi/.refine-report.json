@@ -1,17 +1,7 @@
 {
   "provider": "arcadia-power",
   "sources": [
-    "arcadia-power-accounts-api-openapi.yml",
-    "arcadia-power-credentials-api-openapi.yml",
-    "arcadia-power-files-api-openapi.yml",
-    "arcadia-power-intervals-api-openapi.yml",
-    "arcadia-power-meters-api-openapi.yml",
-    "arcadia-power-oauth-api-openapi.yml",
-    "arcadia-power-organizations-api-openapi.yml",
-    "arcadia-power-providers-api-openapi.yml",
-    "arcadia-power-sites-api-openapi.yml",
-    "arcadia-power-statements-api-openapi.yml",
-    "arcadia-power-webhooks-api-openapi.yml"
+    "_original/arcadia-plug-api-openapi.yml"
   ],
   "outputs": [
     "arcadia-power-accounts-api-openapi.yml",
@@ -26,9 +16,28 @@
     "arcadia-power-statements-api-openapi.yml",
     "arcadia-power-webhooks-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "arcadia-plug-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: arcadia-power-o-auth-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 15 total)"
+  ],
+  "skipped": [
+    "arcadia-power-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-credentials-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-files-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-intervals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-meters-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-o-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-providers-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-sites-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-statements-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "arcadia-power-webhooks-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
