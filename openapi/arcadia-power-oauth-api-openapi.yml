@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Arcadia Plug O Auth API
+  title: Arcadia Plug OAuth API
   version: '2024-02-21'
   description: 'The Arcadia Plug API is the primary developer surface of the Arc utility data platform.
 

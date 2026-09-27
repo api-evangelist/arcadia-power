@@ -92,15 +92,6 @@ paths:
       security:
       - bearerAuth: []
 components:
-  parameters:
-    ArcadiaVersion:
-      in: header
-      name: Arcadia-Version
-      required: false
-      schema:
-        type: string
-        default: '2024-02-21'
-      description: Date-pinned API version.
   schemas:
     IntervalSeries:
       type: object
@@ -140,6 +131,15 @@ components:
           enum:
           - DELIVERED
           - RECEIVED
+  parameters:
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
   securitySchemes:
     bearerAuth:
       type: http

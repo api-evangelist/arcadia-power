@@ -65,14 +65,16 @@ paths:
       - bearerAuth: []
 components:
   parameters:
-    Size:
+    Sort:
       in: query
-      name: size
+      name: sort
       schema:
-        type: integer
-        default: 20
-        maximum: 200
-      description: Page size.
+        type: array
+        items:
+          type: string
+      style: form
+      explode: true
+      description: Sort expression, format `property,(asc|desc)`.
     Page:
       in: query
       name: page
@@ -81,6 +83,14 @@ components:
         default: 0
         minimum: 0
       description: Zero-based page index.
+    Size:
+      in: query
+      name: size
+      schema:
+        type: integer
+        default: 20
+        maximum: 200
+      description: Page size.
     ArcadiaVersion:
       in: header
       name: Arcadia-Version
@@ -95,16 +105,6 @@ components:
       schema:
         type: string
       description: Field-specific search expression.
-    Sort:
-      in: query
-      name: sort
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-      explode: true
-      description: Sort expression, format `property,(asc|desc)`.
   schemas:
     Provider:
       type: object
