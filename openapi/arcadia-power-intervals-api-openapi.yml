@@ -93,24 +93,6 @@ paths:
       - bearerAuth: []
 components:
   schemas:
-    IntervalSeries:
-      type: object
-      properties:
-        meterId:
-          type: string
-        startAt:
-          type: string
-          format: date-time
-        endAt:
-          type: string
-          format: date-time
-        resolutionMinutes:
-          type: integer
-          example: 15
-        readings:
-          type: array
-          items:
-            $ref: '#/components/schemas/IntervalReading'
     IntervalReading:
       type: object
       properties:
@@ -131,6 +113,24 @@ components:
           enum:
           - DELIVERED
           - RECEIVED
+    IntervalSeries:
+      type: object
+      properties:
+        meterId:
+          type: string
+        startAt:
+          type: string
+          format: date-time
+        endAt:
+          type: string
+          format: date-time
+        resolutionMinutes:
+          type: integer
+          example: 15
+        readings:
+          type: array
+          items:
+            $ref: '#/components/schemas/IntervalReading'
   parameters:
     ArcadiaVersion:
       in: header

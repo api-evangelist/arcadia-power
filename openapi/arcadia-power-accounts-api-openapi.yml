@@ -68,17 +68,47 @@ paths:
       security:
       - bearerAuth: []
 components:
-  parameters:
-    Sort:
-      in: query
-      name: sort
-      schema:
-        type: array
-        items:
+  schemas:
+    PaginatedAccounts:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items:
+              $ref: '#/components/schemas/Account'
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+    Account:
+      type: object
+      properties:
+        id:
           type: string
-      style: form
-      explode: true
-      description: Sort expression, format `property,(asc|desc)`.
+        accountNumber:
+          type: string
+        providerId:
+          type: string
+        status:
+          type: string
+        siteId:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        lastModifiedAt:
+          type: string
+          format: date-time
+  parameters:
     Page:
       in: query
       name: page
@@ -109,46 +139,16 @@ components:
         type: string
         default: '2024-02-21'
       description: Date-pinned API version.
-  schemas:
-    Account:
-      type: object
-      properties:
-        id:
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: array
+        items:
           type: string
-        accountNumber:
-          type: string
-        providerId:
-          type: string
-        status:
-          type: string
-        siteId:
-          type: string
-        createdAt:
-          type: string
-          format: date-time
-        lastModifiedAt:
-          type: string
-          format: date-time
-    PaginatedAccounts:
-      allOf:
-      - $ref: '#/components/schemas/Pagination'
-      - type: object
-        properties:
-          content:
-            type: array
-            items:
-              $ref: '#/components/schemas/Account'
-    Pagination:
-      type: object
-      properties:
-        page:
-          type: integer
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
+      style: form
+      explode: true
+      description: Sort expression, format `property,(asc|desc)`.
   securitySchemes:
     bearerAuth:
       type: http

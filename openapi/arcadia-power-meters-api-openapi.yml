@@ -68,17 +68,57 @@ paths:
       security:
       - bearerAuth: []
 components:
-  parameters:
-    Sort:
-      in: query
-      name: sort
-      schema:
-        type: array
-        items:
+  schemas:
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
+    PaginatedMeters:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items:
+              $ref: '#/components/schemas/Meter'
+    Meter:
+      type: object
+      properties:
+        id:
           type: string
-      style: form
-      explode: true
-      description: Sort expression, format `property,(asc|desc)`.
+        meterNumber:
+          type: string
+        accountId:
+          type: string
+        siteId:
+          type: string
+        serviceAddress:
+          type: string
+        commodity:
+          type: string
+          enum:
+          - ELECTRIC
+          - NATURAL_GAS
+          - WATER
+          - OTHER
+        status:
+          type: string
+        provider:
+          type: object
+          properties:
+            id:
+              type: string
+            name:
+              type: string
+  parameters:
     Page:
       in: query
       name: page
@@ -109,56 +149,16 @@ components:
         type: string
         default: '2024-02-21'
       description: Date-pinned API version.
-  schemas:
-    Meter:
-      type: object
-      properties:
-        id:
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: array
+        items:
           type: string
-        meterNumber:
-          type: string
-        accountId:
-          type: string
-        siteId:
-          type: string
-        serviceAddress:
-          type: string
-        commodity:
-          type: string
-          enum:
-          - ELECTRIC
-          - NATURAL_GAS
-          - WATER
-          - OTHER
-        status:
-          type: string
-        provider:
-          type: object
-          properties:
-            id:
-              type: string
-            name:
-              type: string
-    PaginatedMeters:
-      allOf:
-      - $ref: '#/components/schemas/Pagination'
-      - type: object
-        properties:
-          content:
-            type: array
-            items:
-              $ref: '#/components/schemas/Meter'
-    Pagination:
-      type: object
-      properties:
-        page:
-          type: integer
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
+      style: form
+      explode: true
+      description: Sort expression, format `property,(asc|desc)`.
   securitySchemes:
     bearerAuth:
       type: http
