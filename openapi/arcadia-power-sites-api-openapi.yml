@@ -83,14 +83,12 @@ paths:
       - bearerAuth: []
 components:
   parameters:
-    Page:
+    Search:
       in: query
-      name: page
+      name: search
       schema:
-        type: integer
-        default: 0
-        minimum: 0
-      description: Zero-based page index.
+        type: string
+      description: Field-specific search expression.
     Size:
       in: query
       name: size
@@ -99,12 +97,14 @@ components:
         default: 20
         maximum: 200
       description: Page size.
-    Search:
+    Page:
       in: query
-      name: search
+      name: page
       schema:
-        type: string
-      description: Field-specific search expression.
+        type: integer
+        default: 0
+        minimum: 0
+      description: Zero-based page index.
     ArcadiaVersion:
       in: header
       name: Arcadia-Version

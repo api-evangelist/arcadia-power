@@ -65,26 +65,6 @@ paths:
       - bearerAuth: []
 components:
   schemas:
-    Pagination:
-      type: object
-      properties:
-        page:
-          type: integer
-        size:
-          type: integer
-        totalElements:
-          type: integer
-        totalPages:
-          type: integer
-    PaginatedProviders:
-      allOf:
-      - $ref: '#/components/schemas/Pagination'
-      - type: object
-        properties:
-          content:
-            type: array
-            items:
-              $ref: '#/components/schemas/Provider'
     Provider:
       type: object
       properties:
@@ -100,15 +80,33 @@ components:
           type: array
           items:
             type: string
+    PaginatedProviders:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items:
+              $ref: '#/components/schemas/Provider'
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        size:
+          type: integer
+        totalElements:
+          type: integer
+        totalPages:
+          type: integer
   parameters:
-    Page:
+    Search:
       in: query
-      name: page
+      name: search
       schema:
-        type: integer
-        default: 0
-        minimum: 0
-      description: Zero-based page index.
+        type: string
+      description: Field-specific search expression.
     Size:
       in: query
       name: size
@@ -117,20 +115,14 @@ components:
         default: 20
         maximum: 200
       description: Page size.
-    Search:
+    Page:
       in: query
-      name: search
+      name: page
       schema:
-        type: string
-      description: Field-specific search expression.
-    ArcadiaVersion:
-      in: header
-      name: Arcadia-Version
-      required: false
-      schema:
-        type: string
-        default: '2024-02-21'
-      description: Date-pinned API version.
+        type: integer
+        default: 0
+        minimum: 0
+      description: Zero-based page index.
     Sort:
       in: query
       name: sort
@@ -141,6 +133,14 @@ components:
       style: form
       explode: true
       description: Sort expression, format `property,(asc|desc)`.
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
   responses:
     Ok:
       description: Successful response.

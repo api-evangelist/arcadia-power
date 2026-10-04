@@ -76,11 +76,6 @@ paths:
       security:
       - bearerAuth: []
 components:
-  responses:
-    Ok:
-      description: Successful response.
-      content:
-        application/json: {}
   parameters:
     Page:
       in: query
@@ -106,6 +101,11 @@ components:
         type: string
         default: '2024-02-21'
       description: Date-pinned API version.
+  responses:
+    Ok:
+      description: Successful response.
+      content:
+        application/json: {}
   securitySchemes:
     bearerAuth:
       type: http
