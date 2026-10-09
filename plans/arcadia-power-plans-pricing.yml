@@ -1,3 +1,7 @@
+# Provenance stamped 2026-10-07 (roadmap#943): written by an API Evangelist sweep (undated — the file carries no date and git cannot supply one), not
+# harvested from the provider. `method: generated` so the economics campaign may replace it with a
+# dated, verbatim transcription; every figure below is unverified until it does.
+method: generated
 aid: arcadia-power
 name: Arcadia (Arc Platform) Plans & Pricing
 url: https://www.arcadia.com/arc
@@ -99,3 +103,45 @@ sources:
 - https://docs.arcadia.com/docs/api-quick-start-guide
 - https://www.arcadia.com/press/arcadia-acquires-engie-impact
 updated: '2026-05-25'
+x-canonical:
+  generated: '2026-10-08'
+  vocabulary: all/0-working/economics/plans-canonical.yml
+  models:
+  - free
+  - negotiated
+  units:
+  - negotiated
+  - object
+  plans:
+  - name: Sandbox / Trial
+    access: free
+    model: free
+    model_how: derived
+    units:
+    - object
+    periods:
+    - month
+  - name: Starter (Contact Sales)
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units:
+    - negotiated
+    periods:
+    - year
+  - name: Growth (Contact Sales)
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units:
+    - negotiated
+    periods:
+    - year
+  - name: Enterprise (Contact Sales)
+    access: negotiated
+    model: negotiated
+    model_how: stated
+    units:
+    - negotiated
+    periods:
+    - year
