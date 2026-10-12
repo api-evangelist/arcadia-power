@@ -1,0 +1,1147 @@
+edges:
+- partner_name: NRG Energy
+  partner: nrg-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: NRG Energy
+    listed_id: prv_1300afbf-0f4c-11e3-8d99-22000aa40d1f
+    matched_domain: nrg.com
+    service_types:
+    - Water
+    - Lighting
+    - Steam
+    - Electric
+    - Chilled Water
+    - Fuel Oil
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Electricite Reseau Distribution France
+  partner: enedis
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Electricite Reseau Distribution France
+    listed_id: prv_1e4a2bf8-3fda-da4c-8fcb-22000b31a016
+    matched_domain: enedis.fr
+    service_types:
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Eversource
+  partner: eversource-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Eversource
+    listed_id: prv_1e4d377b-62bf-d3d9-992b-22000b31a016
+    matched_domain: eversource.com
+    service_types:
+    - Lighting
+    - Sanitation
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Energy Australia
+  partner: energyaustralia
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Energy Australia
+    listed_id: prv_1e55dc66-5ddf-d21d-b045-22000b109b8b
+    matched_domain: energyaustralia.com.au
+    service_types:
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Ameresco
+  partner: ameresco
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Ameresco
+    listed_id: prv_1e6376e8-47ac-dfce-91c8-22000b109b8b
+    matched_domain: ameresco.com
+    service_types:
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: AGL
+  partner: agl-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: AGL
+    listed_id: prv_1e6856a8-a266-db8d-be7d-22000b109b8b
+    matched_domain: agl.com.au
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Teco Energy
+  partner: teco-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Teco Energy
+    listed_id: prv_1e7f2112-10b6-d469-ac5b-22000b109b8b
+    matched_domain: tecoenergy.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Alinta Energy
+  partner: alinta-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Alinta Energy
+    listed_id: prv_1e8d0568-9427-da2d-932a-060f3bfcfb4c
+    matched_domain: alintaenergy.com.au
+    service_types:
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Tesla Inc.
+  partner: tesla-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Tesla Inc.
+    listed_id: prv_1e90936e-e536-df56-9fe9-0ac481f23f4e
+    matched_domain: tesla.com
+    service_types:
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Octopus Energy
+  partner: octopus-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Octopus Energy
+    listed_id: prv_1e94fa69-00a9-da0f-a5ee-0aeddd03caf8
+    matched_domain: octopus.energy
+    service_types:
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Atco Energy, Alberta
+  partner: atco
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Atco Energy, Alberta
+    listed_id: prv_1e95b8f1-6eb6-dfe4-adfb-06ea37488600
+    matched_domain: atco.com
+    service_types:
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Alectra Utilities
+  partner: alectra-utilities
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Alectra Utilities
+    listed_id: prv_1e9bac4a-b021-df27-adf6-06b09971a9e0
+    matched_domain: alectrautilities.com
+    service_types:
+    - Water
+    - Sewer
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Powershop
+  partner: powershop
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Powershop
+    listed_id: prv_1ea15b14-6434-d62f-8b1d-0e761020973f
+    matched_domain: powershop.com.au
+    service_types:
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Toronto Hydro
+  partner: toronto-hydro
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Toronto Hydro
+    listed_id: prv_1ea8a38d-844f-d16c-9933-0a2e0899b1ef
+    matched_domain: torontohydro.com
+    service_types:
+    - Water
+    - Sanitation
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Ameren Missouri
+  partner: ameren
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  - instant-intervals
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Ameren Missouri
+    listed_id: prv_1ed03941-3b5f-dc16-b7b8-c68e7db0619d
+    matched_domain: ameren.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: EON Next
+  partner: eon-next
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: EON Next
+    listed_id: prv_1ed136cf-0cee-d5c9-b5e4-06661cccfbc7
+    matched_domain: eonnext.com
+    service_types:
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Total Energies, Spain
+  partner: totalenergies
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Total Energies, Spain
+    listed_id: prv_1ee464bc-cdc8-d69f-92f2-f228bd5e69ac
+    matched_domain: totalenergies.com
+    service_types:
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: TEM Energy Limited
+  partner: tem
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: TEM Energy Limited
+    listed_id: prv_1f081a2f-845e-d312-8818-a68543ed7308
+    matched_domain: tem.energy
+    service_types:
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: ENMAX
+  partner: enmax
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: ENMAX
+    listed_id: prv_3147ec5c-6ec0-11e3-8247-22000aa40d1f
+    matched_domain: enmax.com
+    service_types:
+    - Water
+    - Irrigation
+    - Sewer
+    - Lighting
+    - Sanitation
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Hydro Ottawa
+  partner: hydro-ottawa
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Hydro Ottawa
+    listed_id: prv_33f95fe9-9148-11e2-bc80-12313d16f043
+    matched_domain: hydroottawa.com
+    service_types:
+    - Water
+    - Sewer
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Atmos Energy
+  partner: atmos-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Atmos Energy
+    listed_id: prv_36d9550c-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: atmosenergy.com
+    service_types:
+    - Water
+    - Other Service Type
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: CenterPoint Energy
+  partner: centerpoint-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: CenterPoint Energy
+    listed_id: prv_36db02f3-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: centerpointenergy.com
+    service_types:
+    - Other Service Type
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Con Edison (ConEd)
+  partner: consolidated-edison
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Con Edison (ConEd)
+    listed_id: prv_36dc3aa2-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: coned.com
+    service_types:
+    - Water
+    - Sewer
+    - Lighting
+    - Steam
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Duke Energy
+  partner: duke-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Duke Energy
+    listed_id: prv_36dcfe0b-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: duke-energy.com
+    service_types:
+    - Water
+    - Telecom
+    - Television
+    - Lighting
+    - Steam
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Hydro One
+  partner: hydro-one
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Hydro One
+    listed_id: prv_36de84de-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: hydroone.com
+    service_types:
+    - Lighting
+    - Sanitation
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Nova Scotia Power
+  partner: nova-scotia-power
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Nova Scotia Power
+    listed_id: prv_36e0a80f-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: nspower.ca
+    service_types:
+    - Water
+    - Landline Phone
+    - Sewer
+    - Lighting
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Philadelphia Electric Company (PECO)
+  partner: peco-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  - instant-intervals
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Philadelphia Electric Company (PECO)
+    listed_id: prv_36e14460-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: peco.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Pacific Gas and Electric (PG&E)
+  partner: pge
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  - instant-intervals
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Pacific Gas and Electric (PG&E)
+    listed_id: prv_36e14462-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: pge.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Portland General Electric (PGE)
+  partner: portland-general-electric
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Portland General Electric (PGE)
+    listed_id: prv_36e16b7a-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: portlandgeneral.com
+    service_types:
+    - Water
+    - Sewer
+    - Lighting
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Public Service Enterprise Group - New Jersey (PSE&G)
+  partner: pseg
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Public Service Enterprise Group - New Jersey (PSE&G)
+    listed_id: prv_36e1b9a1-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: pseg.com
+    service_types:
+    - Other Service Type
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Puget Sound Energy (PSE)
+  partner: puget-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Puget Sound Energy (PSE)
+    listed_id: prv_36e1e0b4-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: pse.com
+    service_types:
+    - Other Service Type
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Southern California Edison (SCE)
+  partner: southern-california-edison
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  - instant-intervals
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Southern California Edison (SCE)
+    listed_id: prv_36eb7db0-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: sce.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: SCANA Energy
+  partner: scana
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: SCANA Energy
+    listed_id: prv_36ebcbda-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: scanaenergy.com
+    service_types:
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Southwest Gas
+  partner: southwest-gas
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Southwest Gas
+    listed_id: prv_36ec1a0a-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: swgas.com
+    service_types:
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Xcel Energy
+  partner: xcel-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Xcel Energy
+    listed_id: prv_36edc6f1-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: xcelenergy.com
+    service_types:
+    - Water
+    - Lighting
+    - Steam
+    - Electric
+    - Chilled Water
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: FortisBC
+  partner: fortisbc
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: FortisBC
+    listed_id: prv_56c6051b-ab40-11e1-a621-12313d02ea33
+    matched_domain: fortisbc.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    - Propane
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Scottish Power
+  partner: scottishpower
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Scottish Power
+    listed_id: prv_6971cfc9-3114-11e3-9aaf-22000aa40d1f
+    matched_domain: scottishpower.co.uk
+    service_types:
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: EDF Energy
+  partner: edf-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: EDF Energy
+    listed_id: prv_738a818d-bda0-11e2-98d5-12313d16f043
+    matched_domain: edfenergy.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: BC Hydro
+  partner: bc-hydro
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: BC Hydro
+    listed_id: prv_acbba798-dfd6-11e1-a9ee-12313d18b187
+    matched_domain: bchydro.com
+    service_types:
+    - Lighting
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Hydro Québec
+  partner: hydro-quebec
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Hydro Québec
+    listed_id: prv_acc5e02a-dfd6-11e1-a9ee-12313d18b187
+    matched_domain: hydroquebec.com
+    service_types:
+    - Water
+    - Lighting
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Sask Power
+  partner: saskpower
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Sask Power
+    listed_id: prv_acd57070-dfd6-11e1-a9ee-12313d18b187
+    matched_domain: saskpower.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: American Water
+  partner: american-water-works
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: American Water
+    listed_id: prv_da52b6e0-898b-11e3-ae56-22000aa40d1f
+    matched_domain: amwater.com
+    service_types:
+    - Water
+    - Irrigation
+    - Sewer
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: Pepco
+  partner: pepco-holdings
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  - instant-intervals
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: Pepco
+    listed_id: prv_ee75a624-50d1-11e1-bba6-12313d2baea4
+    matched_domain: pepco.com
+    service_types:
+    - Lighting
+    - Electric
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: BP Energy Company
+  partner: bp
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: BP Energy Company
+    listed_id: prv_fb633e27-2ea6-11e2-a9d3-12313d18b187
+    matched_domain: bp.com
+    service_types:
+    - Lighting
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+generated: '2026-10-13'
+method: searched
+checked:
+- https://api.arcadia.com/plug/providers/public
