@@ -377,6 +377,9 @@ accessModel:
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/arcadia-power.png
 access: 3rd-Party
 common:
+  - type: CapabilityMap
+    url: capabilities/arcadia-power-capability-edges.yml
+    name: Arcadia Business Capability Map
   - type: Website
     url: https://www.arcadia.com/
   - type: PostmanWorkspace
