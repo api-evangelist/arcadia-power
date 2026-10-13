@@ -554,7 +554,7 @@ edges:
   detected_by: sweep-energy.py
   first_seen: '2026-10-13'
 - partner_name: Con Edison (ConEd)
-  partner: consolidated-edison
+  partner: con-edison
   channel: provider-built
   direction: provider-built
   operations:
@@ -574,6 +574,35 @@ edges:
     - Sewer
     - Lighting
     - Steam
+    - Electric
+    - Natural Gas
+    detected_by: sweep-energy.py
+    detected: '2026-10-13'
+  type: coverage
+  relationship: system-coverage
+  evidence: https://api.arcadia.com/plug/providers/public
+  detected_by: sweep-energy.py
+  first_seen: '2026-10-13'
+- partner_name: DTE Energy
+  partner: dte-energy
+  channel: provider-built
+  direction: provider-built
+  operations:
+  - statements
+  - statement-history
+  - web-navigation
+  - intervals
+  - interval-history
+  contract_reference:
+    list: Arcadia Plug provider coverage (public list)
+    spec_file: null
+    listed_name: DTE Energy
+    listed_id: prv_36dcafe0-ea0a-11e0-b6bb-12313d2b6294
+    matched_domain: dteenergy.com
+    service_types:
+    - Water
+    - Sewer
+    - Lighting
     - Electric
     - Natural Gas
     detected_by: sweep-energy.py
