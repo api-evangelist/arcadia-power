@@ -101,20 +101,6 @@ components:
         totalPages:
           type: integer
   parameters:
-    Search:
-      in: query
-      name: search
-      schema:
-        type: string
-      description: Field-specific search expression.
-    Size:
-      in: query
-      name: size
-      schema:
-        type: integer
-        default: 20
-        maximum: 200
-      description: Page size.
     Page:
       in: query
       name: page
@@ -141,6 +127,20 @@ components:
         type: string
         default: '2024-02-21'
       description: Date-pinned API version.
+    Size:
+      in: query
+      name: size
+      schema:
+        type: integer
+        default: 20
+        maximum: 200
+      description: Page size.
+    Search:
+      in: query
+      name: search
+      schema:
+        type: string
+      description: Field-specific search expression.
   responses:
     Ok:
       description: Successful response.

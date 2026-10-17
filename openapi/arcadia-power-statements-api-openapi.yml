@@ -92,48 +92,16 @@ paths:
       security:
       - bearerAuth: []
 components:
-  parameters:
-    Search:
-      in: query
-      name: search
-      schema:
-        type: string
-      description: Field-specific search expression.
-    Sort:
-      in: query
-      name: sort
-      schema:
-        type: array
-        items:
-          type: string
-      style: form
-      explode: true
-      description: Sort expression, format `property,(asc|desc)`.
-    Size:
-      in: query
-      name: size
-      schema:
-        type: integer
-        default: 20
-        maximum: 200
-      description: Page size.
-    Page:
-      in: query
-      name: page
-      schema:
-        type: integer
-        default: 0
-        minimum: 0
-      description: Zero-based page index.
-    ArcadiaVersion:
-      in: header
-      name: Arcadia-Version
-      required: false
-      schema:
-        type: string
-        default: '2024-02-21'
-      description: Date-pinned API version.
   schemas:
+    PaginatedStatements:
+      allOf:
+      - $ref: '#/components/schemas/Pagination'
+      - type: object
+        properties:
+          content:
+            type: array
+            items:
+              $ref: '#/components/schemas/Statement'
     Statement:
       type: object
       properties:
@@ -178,15 +146,6 @@ components:
         lastModifiedAt:
           type: string
           format: date-time
-    PaginatedStatements:
-      allOf:
-      - $ref: '#/components/schemas/Pagination'
-      - type: object
-        properties:
-          content:
-            type: array
-            items:
-              $ref: '#/components/schemas/Statement'
     Pagination:
       type: object
       properties:
@@ -198,6 +157,47 @@ components:
           type: integer
         totalPages:
           type: integer
+  parameters:
+    Page:
+      in: query
+      name: page
+      schema:
+        type: integer
+        default: 0
+        minimum: 0
+      description: Zero-based page index.
+    Sort:
+      in: query
+      name: sort
+      schema:
+        type: array
+        items:
+          type: string
+      style: form
+      explode: true
+      description: Sort expression, format `property,(asc|desc)`.
+    ArcadiaVersion:
+      in: header
+      name: Arcadia-Version
+      required: false
+      schema:
+        type: string
+        default: '2024-02-21'
+      description: Date-pinned API version.
+    Size:
+      in: query
+      name: size
+      schema:
+        type: integer
+        default: 20
+        maximum: 200
+      description: Page size.
+    Search:
+      in: query
+      name: search
+      schema:
+        type: string
+      description: Field-specific search expression.
   securitySchemes:
     bearerAuth:
       type: http
