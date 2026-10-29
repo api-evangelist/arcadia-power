@@ -1,4 +1,4 @@
-# Arcadia (arcadia-power)
+# Arcadia
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,167 +66,179 @@
 
 Arcadia is a clean-energy access and energy-intelligence company that operates Arc, a utility data platform giving developers programmatic access to utility bills, statements, meters, interval (15-minute) usage data, tariff rates, and provider metadata across thousands of US and international utilities. Arc combines the Plug API for utility data, Arcadia Connect for hosted credential collection and MFA, Signal for tariff and rate calculations, and webhooks for asynchronous events. Arcadia powers solar and storage modeling, EV charging, energy management, property management, and carbon accounting for customers including Ford, EVgo, Enphase, Oracle, UPS, Conagra, Penske, and ~25% of the Fortune 500. In April 2026 Arcadia acquired ENGIE Impact, adding utility bill management, energy procurement advisory, and sustainability reporting capabilities.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/arcadia-power/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/arcadia-power/refs/heads/main/apis.yml)
+**Areas:** Energy · Clean Energy · Utility Data · Climate · Sustainability · Carbon Accounting · Solar · Storage · EV Charging · Decarbonization · Energy Intelligence · Utilities
 
-## Scope
+## Arcadia on APIs.io
 
-- **Position:** Consuming
-- **Access:** 3rd-Party
+Everything profiled for Arcadia is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/arcadia-power/](https://apis.io/providers/arcadia-power/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (15)
 
-- Energy
-- Clean Energy
-- Utility Data
-- Climate
-- Sustainability
-- Carbon Accounting
-- Solar
-- Storage
-- EV Charging
-- Decarbonization
-- Energy Intelligence
+- [Arcadia Connect API](https://apis.io/apis/arcadia-power/arcadia-connect-api/) — Arcadia Connect is a hosted credential-collection web experience that handles utility account onboarding — credential capture, MFA flows, one-time…
+- [Arcadia Signal API](https://apis.io/apis/arcadia-power/arcadia-signal-api/) — Arcadia Signal provides utility tariff and energy rate data and calculations for use in cost-benefit analyses, bill audits, project forecasting, and…
+- [Arcadia Webhooks API](https://apis.io/apis/arcadia-power/arcadia-webhooks-api/) — List, retrieve, and resend webhooks for asynchronous Plug platform events including statement availability, meter activation, interval data readiness, and…
+- [Arcadia Utility Cloud API (Legacy)](https://apis.io/apis/arcadia-power/arcadia-utility-cloud-api/) — The legacy Utility Cloud REST API — predecessor to the Plug API — still documented for existing integrations. New integrations should use the Plug API; the…
+- [Arcadia Accounts API](https://apis.io/apis/arcadia-power/arcadia-power-accounts-api/) — Utility accounts discovered for a credential.
+- [Arcadia Credentials API](https://apis.io/apis/arcadia-power/arcadia-power-credentials-api/) — Utility-login credentials used to pull data on behalf of customers.
+- [Arcadia Files API](https://apis.io/apis/arcadia-power/arcadia-power-files-api/) — Source documents (PDFs, etc.) for statements and other artifacts.
+- [Arcadia Intervals API](https://apis.io/apis/arcadia-power/arcadia-power-intervals-api/) — Time-series consumption data, typically 15-minute resolution.
+- [Arcadia Meters API](https://apis.io/apis/arcadia-power/arcadia-power-meters-api/) — Individual measurement devices associated with accounts and sites.
+- [Arcadia Organizations API](https://apis.io/apis/arcadia-power/arcadia-power-organizations-api/) — Top-level organization resource.
+- [Arcadia Providers API](https://apis.io/apis/arcadia-power/arcadia-power-providers-api/) — Utility providers supported by the platform.
+- [Arcadia Sites API](https://apis.io/apis/arcadia-power/arcadia-power-sites-api/) — Physical service locations grouping meters and accounts.
+- [Arcadia Statements API](https://apis.io/apis/arcadia-power/arcadia-power-statements-api/) — Utility bills / statements pulled from the provider.
+- [Arcadia Webhooks API](https://apis.io/apis/arcadia-power/arcadia-power-webhooks-api/) — Asynchronous events for statement, meter, and credential lifecycle.
+- [Arcadia O Auth API](https://apis.io/apis/arcadia-power/arcadia-power-oauth-api/) — Access token issuance.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-25T00:00:00.000Z
-- **Modified:** 2026-05-25
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### Arcadia Plug API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-The Arcadia Plug API is the flagship developer surface of the Arc data platform — programmatic access to utility bill, statement, meter, interval, site, and provider data sourced from thousands of US and international utilities. Plug powers solar/storage modeling, EV charging, energy management, property management, and carbon accounting use cases. OAuth 2.0 client-credentials authentication; versioned via the Arcadia-Version header (current default 2024-02-21).
+- [Arcadia Power Agentic Access](https://apis.io/agentic-access/arcadia-power/arcadia-power-agentic-access/)
 
-- **Human URL:** [https://docs.arcadia.com/reference/introduction](https://docs.arcadia.com/reference/introduction)
-- **Base URL:** `https://api.arcadia.com/plug`
+#### JSON Schema (3)
 
-#### Tags
+The data models the API reads and writes.
 
-- Energy
-- Utility Data
-- Clean Energy
-- Bills
-- Meters
-- Intervals
+- [Arcadia Interval Series](https://apis.io/schemas/arcadia-power/arcadia-interval/)
+- [Arcadia Meter](https://apis.io/schemas/arcadia-power/arcadia-meter/)
+- [Arcadia Statement](https://apis.io/schemas/arcadia-power/arcadia-statement/)
 
-#### Properties
+#### JSON-LD (1)
 
-- [Documentation](https://docs.arcadia.com/reference/introduction)
-- [Getting Started](https://docs.arcadia.com/docs/api-quick-start-guide)
-- [OpenAPI](openapi/arcadia-plug-api-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/arcadia-plug-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/arcadia-plug-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/arcadia-statement-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/arcadia-meter-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/arcadia-interval-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/arcadia-power-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
+Linked-data contexts for the provider's vocabulary.
 
-### Arcadia Connect API
+- [Arcadia Power Context](https://apis.io/jsonld/arcadia-power/arcadia-power-context/)
 
-Arcadia Connect is a hosted credential-collection web experience that handles utility account onboarding — credential capture, MFA flows, one-time passcodes, and credential refresh — without requiring partners to handle utility passwords directly. The accompanying Connect API generates encoded session URLs and exposes credential lifecycle endpoints (create, update, refresh, disable).
+#### Collections (23)
 
-- **Human URL:** [https://docs.arcadia.com/docs/connect-guide](https://docs.arcadia.com/docs/connect-guide)
+Postman and Open Collection request collections.
 
-#### Tags
+- [Arcadia Plug API](https://apis.io/collections/arcadia-power/open-arcadia-plug-api/)
+- [Arcadia Plug Accounts API](https://apis.io/collections/arcadia-power/open-arcadia-power-accounts-api/)
+- [Arcadia Plug Accounts Credentials API](https://apis.io/collections/arcadia-power/open-arcadia-power-credentials-api/)
+- [Arcadia Plug Accounts Files API](https://apis.io/collections/arcadia-power/open-arcadia-power-files-api/)
+- [Arcadia Plug Accounts Intervals API](https://apis.io/collections/arcadia-power/open-arcadia-power-intervals-api/)
+- [Arcadia Plug Accounts Meters API](https://apis.io/collections/arcadia-power/open-arcadia-power-meters-api/)
+- [Arcadia Plug Accounts OAuth API](https://apis.io/collections/arcadia-power/open-arcadia-power-oauth-api/)
+- [Arcadia Plug Accounts Organizations API](https://apis.io/collections/arcadia-power/open-arcadia-power-organizations-api/)
+- [Arcadia Plug Accounts Providers API](https://apis.io/collections/arcadia-power/open-arcadia-power-providers-api/)
+- [Arcadia Plug Accounts Sites API](https://apis.io/collections/arcadia-power/open-arcadia-power-sites-api/)
+- [Arcadia Plug Accounts Statements API](https://apis.io/collections/arcadia-power/open-arcadia-power-statements-api/)
+- [Arcadia Plug Accounts Webhooks API](https://apis.io/collections/arcadia-power/open-arcadia-power-webhooks-api/)
+- [Arcadia Plug Accounts API](https://apis.io/collections/arcadia-power/postman-arcadia-power-accounts-api/)
+- [Arcadia Plug Accounts Credentials API](https://apis.io/collections/arcadia-power/postman-arcadia-power-credentials-api/)
+- [Arcadia Plug Accounts Files API](https://apis.io/collections/arcadia-power/postman-arcadia-power-files-api/)
+- [Arcadia Plug Accounts Intervals API](https://apis.io/collections/arcadia-power/postman-arcadia-power-intervals-api/)
+- [Arcadia Plug Accounts Meters API](https://apis.io/collections/arcadia-power/postman-arcadia-power-meters-api/)
+- [Arcadia Plug Accounts OAuth API](https://apis.io/collections/arcadia-power/postman-arcadia-power-oauth-api/)
+- [Arcadia Plug Accounts Organizations API](https://apis.io/collections/arcadia-power/postman-arcadia-power-organizations-api/)
+- [Arcadia Plug Accounts Providers API](https://apis.io/collections/arcadia-power/postman-arcadia-power-providers-api/)
+- [Arcadia Plug Accounts Sites API](https://apis.io/collections/arcadia-power/postman-arcadia-power-sites-api/)
+- [Arcadia Plug Accounts Statements API](https://apis.io/collections/arcadia-power/postman-arcadia-power-statements-api/)
+- [Arcadia Plug Accounts Webhooks API](https://apis.io/collections/arcadia-power/postman-arcadia-power-webhooks-api/)
 
-- Energy
-- Utility Data
-- Authentication
-- Credentials
-- Onboarding
+#### Governance rules (1)
 
-#### Properties
+Spectral rulesets for the provider's contracts.
 
-- [Documentation](https://docs.arcadia.com/docs/connect-guide)
-- [Postman Collection](collections/arcadia-plug-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/arcadia-plug-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Arcadia — jsonschema rules](https://apis.io/rules/arcadia-power/arcadia-power-jsonschema-spectral-rules/)
 
-### Arcadia Signal API
+#### Security (4)
 
-Arcadia Signal provides utility tariff and energy rate data and calculations for use in cost-benefit analyses, bill audits, project forecasting, and financial modeling. Signal powers the Tariff & Energy Rate Calculator product and supports customers building solar, storage, EV charging, and demand-response economics.
+Authentication, trust centre, and vulnerability disclosure.
 
-- **Human URL:** [https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start](https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start)
+- [Arcadia Power Authentication](https://apis.io/security/arcadia-power/arcadia-power-authentication/)
+- [Arcadia Power Domain Security](https://apis.io/security/arcadia-power/arcadia-power-domain-security/)
+- [Arcadia Power Trust Center](https://apis.io/security/arcadia-power/arcadia-power-trust-center/)
+- [Arcadia Power Vulnerability Disclosure](https://apis.io/security/arcadia-power/arcadia-power-vulnerability-disclosure/)
 
-#### Tags
+#### Plans and pricing (1)
 
-- Energy
-- Utility Data
-- Tariff
-- Rates
-- Real-Time
+Published plans, tiers and prices.
 
-#### Properties
+- [Arcadia Power Plans Pricing](https://apis.io/plans/arcadia-power/arcadia-power-plans-pricing/)
 
-- [Documentation](https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start)
-- [Postman Collection](collections/arcadia-plug-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/arcadia-plug-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+#### Rate limits (1)
 
-### Arcadia Webhooks API
+Published request limits.
 
-List, retrieve, and resend webhooks for asynchronous Plug platform events including statement availability, meter activation, interval data readiness, and credential lifecycle changes. Arcadia recommends webhooks over polling for production integrations.
+- [Arcadia Power Rate Limits](https://apis.io/rate-limits/arcadia-power/arcadia-power-rate-limits/)
 
-- **Human URL:** [https://docs.arcadia.com/reference/list-webhooks](https://docs.arcadia.com/reference/list-webhooks)
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- Energy
-- Webhooks
-- Events
-- Notifications
+- [Arcadia Power Finops](https://apis.io/finops/arcadia-power/arcadia-power-finops/)
 
-#### Properties
+## Where to find this API
 
-- [Documentation](https://docs.arcadia.com/reference/list-webhooks)
-- [Postman Collection](collections/arcadia-plug-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/arcadia-plug-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### Arcadia Utility Cloud API (Legacy)
-
-The legacy Utility Cloud REST API — predecessor to the Plug API — still documented for existing integrations. New integrations should use the Plug API; the Utility Cloud version remains available for backward compatibility.
-
-- **Human URL:** [https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide](https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide)
-
-#### Tags
-
-- Energy
-- Utility Data
-- Legacy
-
-#### Properties
-
-- [Documentation](https://docs.arcadia.com/v1.0-Utility-Cloud/docs/api-quick-start-guide)
-- [Documentation](https://docs.arcadia.com/v1.0-Utility-Cloud/reference/introduction)
-- [Postman Collection](collections/arcadia-plug-api.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/arcadia-plug-api.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [Portal](https://www.arcadia.com)
+- [Website](https://www.arcadia.com/)
 - [Documentation](https://docs.arcadia.com/)
-- [Documentation](https://www.arcadia.com/arc)
-- [Getting Started](https://docs.arcadia.com/docs/api-quick-start-guide)
-- [Documentation](https://docs.arcadia.com/docs/arcadia-data-model)
-- [Sign Up](https://dashboard.arcadia.com)
-- [GitHub Organization](https://github.com/arcadiapower)
-- [Blog](https://www.arcadia.com/blog)
+- [Getting started](https://docs.arcadia.com/docs/api-quick-start-guide)
 - [Changelog](https://docs.arcadia.com/changelog)
-- [Privacy Policy](https://www.arcadia.com/privacy-policy)
-- [Terms of Service](https://www.arcadia.com/terms-of-service)
-- [LinkedIn](https://www.linkedin.com/company/arcadiapower)
-- [Press](https://www.arcadia.com/press)
-- [Documentation](https://docs.arcadia.com/reference/introduction)
-- [Documentation](https://docs.arcadia.com/v2022-12-21-Signal/docs/quick-start)
-- [Documentation](https://docs.arcadia.com/docs/connect-guide)
-- [Documentation](https://docs.arcadia.com/reference/introduction)
-- [Documentation](https://docs.arcadia.com/llms.txt)
-- [Plans](plans/arcadia-power-plans-pricing.yml)
-- [Rate Limits](rate-limits/arcadia-power-rate-limits.yml)
-- [Fin Ops](finops/arcadia-power-finops.yml)
-- [Features](undefined)
+- [Blog](https://www.arcadia.com/blog)
+- [Terms of service](https://www.arcadia.com/terms-of-service)
+- [Privacy policy](https://www.arcadia.com/privacy-policy)
+- [GitHub](https://github.com/arcadiapower)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** info@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 40.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 58.0 |
+| Contract quality | 56.0 |
+| Contract governance | 9.8 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 40.5 |
+| Access clarity | 28.9 |
+
+**Agent readiness 28.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | verified |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 23.0** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/arcadia-power/](https://apis.io/providers/arcadia-power/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Arcadia: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/arcadia-power/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
